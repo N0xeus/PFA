@@ -1,0 +1,34 @@
+Analyse du besoin
+
+Programmation en C++		-> Avec ou sans IDE	=> Codeblocks
+Beaucoup d'interactions		-> Personnages, ennemis, environnement
+Graphisme 2D				-> Bibliothèque SDL ou SFML en Vue de profil => SFML
+Délais 2 mois				-> 15 Mai 2016
+Tests						-> Des rapports de tests
+
+Jeu de platforme			-> Personnage qui saute sur plusieurs platformes => Texture, tuiles
+Ennemis 					-> IA, apparition aléatoire et limitée => Déplacement, saut et attaque
+Combat par étape			-> Alternance Progression/Combat
+Combat au CàC				-> Epées, couteaux, poings, pieds => Sprites et tenue en main, orientation
+Combat à distance			-> Pistolet, fusils, explosifs => Sprites et tenue en main, orientation
+Obstacles					-> Caisses, mur
+Bonus						-> Caisses de vie, bonus dégât, armes
+Armes aléatoires			-> Limitée et niveaux de rareté
+Boss final					-> Plus puissant avec une barre de vie et des phases
+
+Animations personnages		-> Mouvements, gauche-droite, saut, blessé
+Animations de mort			-> Personnage ou ennemi à terre
+Barre de vie personnages	-> Verte et rouge selon le niveaux
+Compteur de vie				-> 3 vies (afficher les têtes par exemple)
+Scrolling progressif		-> Afficher "GO" avant de poursuivre, suivre le personnage sauf en combat
+
+Ecran d'accueil				-> Illustration du jeu
+Icône 						-> Petite miniature
+Timer						-> Chronomètre qui défile
+Score 						-> En fonction du nombre d'ennemi tué et du temps
+High-score					-> Afficher le meilleur score dans le menu
+Credit 						-> Nom du jeu et développeur
+Cinématique					-> Début du jeu, fin du jeu, arrivée du boss, (super-bonus)
+Game Over					-> Ecran de fin avec "Quitter" et "Continuer" => Point de contrôle
+Niveaux de difficulté		-> Détermine le nombre d'ennemi et augmente le score
+Scénario					-> But du personnage (demoiselle en détresse)
