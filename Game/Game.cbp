@@ -13,7 +13,13 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-system-d" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/Game" prefix_auto="1" extension_auto="1" />
@@ -22,17 +28,29 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="include" />
 		</Compiler>
+		<Linker>
+			<Add directory="lib" />
+		</Linker>
+		<Unit filename="include/Character.h" />
+		<Unit filename="include/TouchableObject.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/TouchableObject.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
