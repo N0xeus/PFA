@@ -19,8 +19,11 @@ class Character : public TouchableObject
         bool isVulnerable() { return vulnerable; }
         void setVulnerable(bool val){vulnerable = val;}
 
-        bool isDead();
         int attack(TouchableObject& target);
+        bool isDead();
+        int hurt(int damage);
+
+        void print();
 
     protected:
 

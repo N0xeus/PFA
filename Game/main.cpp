@@ -40,9 +40,7 @@ int main(void)
         window.display();
     }*/
 
-    TouchableObject to = TouchableObject(1, sf::Rect<float>(0.,0.,10.,10.));
-    Character c = Character(1, sf::Rect<float>(0.,0.,10.,10.), sf::Vector2f(0.,0.), 10);
-    to.print();
+    Character c = Character(2, sf::Rect<float>(0.,0.,10.,20.), sf::Vector2f(10.,20.), 10);
     c.print();
     return 0;
 }
