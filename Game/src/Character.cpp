@@ -1,16 +1,23 @@
 #include "Character.h"
 
-Character::Character()
+Character::Character(int id, const sf::Rect<float> box, const sf::Vector2f speed, int hp):TouchableObject(id, box)
 {
-    //ctor
-}
-
-bool Character::attack(TouchableObject to_1)
-{
-    // attack code
+    this->speed=speed;
+    this->hp=hp;
+    this->hpMax=hp;
 }
 
 Character::~Character()
 {
     //dtor
+}
+
+int Character::attack(TouchableObject& target)
+{
+    return 0;
+}
+
+bool Character::isDead(){
+    if(hpMax-hp<=0) return true;
+    else return false;
 }

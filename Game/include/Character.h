@@ -2,31 +2,33 @@
 #define CHARACTER_H
 
 #include <TouchableObject.h>
-
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/System/Vector2.hpp>
 
 class Character : public TouchableObject
 {
     public:
-        Character();
+        Character(int id, const sf::Rect<float>, const sf::Vector2f speed, int hp);
         virtual ~Character();
 
-        int Gethp() { return hp; }
-        void Sethp(int val) { hp = val; }
-        int Getspeed() { return speed; }
-        void Setspeed(int val) { speed = val; }
-        int Getjump() { return jump; }
-        void Setjump(int val) { jump = val; }
-        int Getvulnerable() { return vulnerable; }
-        void Setvulnerable(int val) { vulnerable = val; }
-        bool attack(TouchableObject to_1);
+        int getHp() { return hp; }
+        void setHp(int val) { hp = val; }
+        sf::Vector2f getSpeed() { return speed; }
+        void setSpeedX(float val) { speed.x = val; }
+        void setSpeedY(float val) { speed.y = val; }
+        bool isVulnerable() { return vulnerable; }
+        void setVulnerable(bool val){vulnerable = val;}
+
+        bool isDead();
+        int attack(TouchableObject& target);
 
     protected:
 
     private:
         int hp;
-        int speed;
-        int jump;
-        int vulnerable;
+        int hpMax;
+        sf::Vector2f speed;
+        bool vulnerable;
 };
 
 #endif // CHARACTER_H

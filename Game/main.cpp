@@ -1,11 +1,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Character.h"
 
 using namespace std;
 
-int main()
+int main(void)
 {
-    sf::RenderWindow window(sf::VideoMode(800,500), "Tesssssst!!!");
+    /*sf::RenderWindow window(sf::VideoMode(800,600), "LGGP Project");
+    window.setFramerateLimit(60);
+
     while(window.isOpen())
     {
         sf::Event event;
@@ -35,6 +38,11 @@ int main()
         window.draw(shape);
 
         window.display();
-    }
+    }*/
+
+    TouchableObject to = TouchableObject(1, sf::Rect<float>(0.,0.,10.,10.));
+    Character c = Character(1, sf::Rect<float>(0.,0.,10.,10.), sf::Vector2f(0.,0.), 10);
+    to.print();
+    c.print();
     return 0;
 }
