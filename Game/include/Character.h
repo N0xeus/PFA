@@ -8,7 +8,7 @@
 class Character : public TouchableObject
 {
     public:
-        Character(int id, const sf::Rect<float>, const sf::Vector2f speed, int hp);
+        Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp);
         virtual ~Character();
 
         int getHp() { return hp; }

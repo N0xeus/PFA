@@ -1,7 +1,7 @@
 #include <iostream>
 #include "TouchableObject.h"
 
-TouchableObject::TouchableObject(int id, const sf::Rect<float> box)
+TouchableObject::TouchableObject(int id, const sf::IntRect box)
 {
     this->id=id;
     this->hitbox=box;

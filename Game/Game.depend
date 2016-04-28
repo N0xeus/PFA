@@ -774,7 +774,7 @@
 1460938196 c:\users\léo\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 
-1461838967 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1461855563 source:e:\gaetan\documents\github\pfa\game\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Character.h"
@@ -1157,19 +1157,19 @@
 	<string>
 	<vector>
 
-1461839319 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
+1461843971 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
 	"Character.h"
 	<iostream>
 
-1461838879 e:\gaetan\documents\github\pfa\game\include\character.h
+1461843848 e:\gaetan\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1461837950 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
+1461843782 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
 	<SFML/Graphics/Rect.hpp>
 
-1461837999 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
+1461843990 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
 	<iostream>
 	"TouchableObject.h"
 

@@ -6,18 +6,18 @@
 class TouchableObject
 {
     public:
-        TouchableObject(int id, const sf::Rect<float> box);
+        TouchableObject(int id, const sf::IntRect box);
         virtual ~TouchableObject();
 
         int getId() { return id; }
-        sf::Rect<float> getHitbox() { return hitbox; }
+        sf::IntRect getHitbox() { return hitbox; }
 
         bool intersects(TouchableObject& to);
         void print();
 
     protected:
         int id;
-        sf::Rect<float> hitbox;
+        sf::IntRect hitbox;
 
     private:
 

@@ -1,7 +1,7 @@
 #include "Character.h"
 #include <iostream>
 
-Character::Character(int id, const sf::Rect<float> box, const sf::Vector2f speed, int hp):TouchableObject(id, box)
+Character::Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp):TouchableObject(id, box)
 {
     this->speed=speed;
     this->hp=hp;
@@ -23,7 +23,7 @@ bool Character::isDead(){
     else return false;
 }
 
-int hurt(int damage){
+int Character::hurt(int damage){
     hp-=damage;
     return hp;
 }
