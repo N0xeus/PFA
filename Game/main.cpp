@@ -1,102 +1,311 @@
-#include <cmath>
 #include <iostream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include "Character.h"
+#include "MenuController.h"
 
-using namespace sf;
+using namespace std;
 
-const Vector2f g = Vector2f(0.,10);
-Vector2f speed = Vector2f(0.,0.);
-const float eps = 1e-3;
+//Width and height
+#define SCREEN_W 800
+#define SCREEN_H 600
 
-void ground(Shape& shape){
-    Vector2f pos = shape.getPosition();
+//Selected options and current menu
+int selected=0;
+int current_menu=0;
+//Difficulty and music state
+int difficulty=0;
+bool music_state=true;
 
-    if(pos.y>500.){
-        shape.setPosition(pos.x, 500.);
-        if(abs(speed.y)<eps){
-            speed.y=0;
-        }else speed.y*=-0.5;
+//Draw texts in the window
+void draw(sf::RenderWindow& w, sf::Text* t, int n){
+    for(int i=0; i<n; i++){
+        w.draw(t[i]);
     }
-    if(abs(speed.x)<eps){
-        speed.x=0;
-    }else speed.x*=0.5;
 }
 
-void gravity(Shape& shape){
-    speed+=g;
-    ground(shape);
-}
+int main(void){
+    //800x600 window entitled LGGP Project with a fix size
+    //Screen frame rate limited at 60Hz
+    sf::RenderWindow window(sf::VideoMode(SCREEN_W,SCREEN_H), "LGGP Project", sf::Style::Close);
+    window.setFramerateLimit(60);
 
-void move1(Shape& shape){
-    shape.setPosition(shape.getPosition()+speed);
-}
+    //Scott head selected as icon for the window
+    sf::Image icon;
+    icon.loadFromFile("img/icon.png");
+    window.setIcon(100,100,icon.getPixelsPtr());
 
-int main()
-{
-    RenderWindow app(VideoMode(800, 600), "Balles !");
-    app.setFramerateLimit(60);
+    //Select the background
+    sf::Texture bgt;
+    bgt.loadFromFile("img/background.jpg");
+    sf::RectangleShape bg = sf::RectangleShape(sf::Vector2f(800,600));
+    bg.setTexture(&bgt);
 
-    CircleShape circle1(50);
-    circle1.setPosition(350, 0);
-    circle1.setFillColor(Color(255, 0, 0));
+    //Music by Toby Fox
+    sf::Music music;
+    music.openFromFile("audio/menu.wav");
+    music.setLoop(true);
+    music.setVolume(30.);
+    music.play();
 
-    Clock clock;
+    //Clear the window with a black screen
+    window.clear(sf::Color::Black);
 
-    // Boucle principale
-    while (app.isOpen())
-    {
-        Event event;
+    sf::Event event;
+    int limit;
+    sf::Font font1, font2;
+    font1.loadFromFile("font/impact.ttf");
+    font2.loadFromFile("font/Minecraft.ttf"); //Craftron Gaming
+    sf::Text* titles;
+    sf::Text* options;
+    ifstream scores_file("scores.txt");
+    string main_string[MenuController::MAIN_LIMIT] = {"PLAY", "OPTIONS", "SCORES", "CREDITS", "QUIT"};
+    string options_string[MenuController::OP_LIMIT]= {"DIFFICULTY : NOOB", "MUSIC : ON", "BACK"};
+    string scores_string[MenuController::SC_LIMIT]= {"", "", "", "", "BACK"};
+    string credits_string[MenuController::CR_LIMIT]= {"DEVELOPER : LEO GARREAU",
+                                                        "DEVELOPER : GAETAN PUGET",
+                                                        "SPRITES : MAVERICK PK",
+                                                        "MUSIC : TOBY FOX",
+                                                        "FONT : CRAFTRON GAMING",
+                                                        "BACK"
+                                                    };
 
-        while (app.pollEvent(event)){
-            switch(event.type){
-                case Event::Closed : app.close(); break;
+    while(window.isOpen()){
+        switch(current_menu){
+            case MenuController::MAIN_ID :
+                limit=MenuController::MAIN_LIMIT;
 
-                case Event::KeyPressed : {
-                    switch(event.key.code){
-                        case Keyboard::Up :
-                        case Keyboard::Z : {
-                            speed.y=1000;
-                        }break;
+                //Window is listening events
+                while(window.pollEvent(event)){
+                    //Window closed
+                    if(event.type==sf::Event::Closed) window.close();
 
-                        case Keyboard::Down :
-                        case Keyboard::S : {
+                    //Key pressed
+                    if(event.type==sf::Event::KeyPressed){
+                        switch(event.key.code){
+                            //Previous selection
+                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
+                            break;
 
-                        }break;
+                            //Next selection
+                            case sf::Keyboard::Down : selected = (selected+1)%limit;
+                            break;
 
-                        case Keyboard::Left :
-                        case Keyboard::Q : {
-                            speed.x=-1000;
-                        }break;
+                            //Press ENTER
+                            case sf::Keyboard::Return :
+                                switch(selected){
+                                    //Quit
+                                    case MenuController::MAIN_QUIT :
+                                        window.close();
+                                    break;
 
-                        case Keyboard::Right :
-                        case Keyboard::D : {
-                            speed.x=1000;
-                        }break;
+                                    //Options menu
+                                    case MenuController::MAIN_OPTIONS :
+                                        current_menu=MenuController::OP_ID;
+                                        selected=0;
+                                    break;
+
+                                    //Scores menu
+                                    case MenuController::MAIN_SCORES :
+                                        current_menu=MenuController::SC_ID;
+                                        selected=0;
+                                    break;
+
+                                    //Credits menu
+                                    case MenuController::MAIN_CREDITS :
+                                        current_menu=MenuController::CR_ID;
+                                        selected=0;
+                                    break;
+                                }
+                            break;
+                        }
                     }
-                }break;
+                }
 
-                case Event::KeyReleased :{
-                    switch(event.key.code){
-                        case Keyboard::Left :
-                        case Keyboard::Right :
-                        case Keyboard::Q :
-                        case Keyboard::D : {
+                //Draw the background
+                window.draw(bg);
+                //Mark title
+                titles=new sf::Text[3];
+                MenuController::printTitles(titles, 3, font1, SCREEN_W, SCREEN_H);
+                //Mark options
+                options = new sf::Text[limit];
+                MenuController::printOptions(main_string, options, limit, font2, SCREEN_W, SCREEN_H, selected);
+                //Draw titles and options
+                draw(window, titles, 3);
+                draw(window, options, limit);
 
-                        }break;
+                window.display();
+            break;
+
+            //Options menu
+            case MenuController::OP_ID :
+                limit=MenuController::OP_LIMIT;
+
+                //Window is listening events
+                while(window.pollEvent(event)){
+                    //Window closed
+                    if(event.type==sf::Event::Closed) window.close();
+
+                    //Key pressed
+                    if(event.type==sf::Event::KeyPressed){
+                        switch(event.key.code){
+                            //Previous selection
+                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
+                            break;
+
+                            //Next selection
+                            case sf::Keyboard::Down : selected = (selected+1)%limit;
+                            break;
+
+                            //Press ENTER
+                            case sf::Keyboard::Return :
+                                switch(selected){
+                                    //Go to Main menu
+                                    case MenuController::OP_BACK :
+                                        current_menu=MenuController::MAIN_ID;
+                                        selected=0;
+                                    break;
+
+                                    //Change difficulty
+                                    case MenuController::OP_DIFFICULTY :
+                                        if(difficulty==0){
+                                            options_string[MenuController::OP_DIFFICULTY] = "DIFFICULTY : NORMAL";
+                                        }else if(difficulty==1){
+                                            options_string[MenuController::OP_DIFFICULTY] = "DIFFICULTY : TRY HARDER";
+                                        }else{
+                                            options_string[MenuController::OP_DIFFICULTY] = "DIFFICULTY : NOOB";
+                                        }
+                                        difficulty=(difficulty+1)%3;
+                                    break;
+
+                                    //Change music state
+                                    case MenuController::OP_MUSIC :
+                                        if(music_state){
+                                            music.stop();
+                                            options_string[MenuController::OP_MUSIC] = "MUSIC : OFF";
+                                        }
+                                        else{
+                                            music.play();
+                                            options_string[MenuController::OP_MUSIC] = "MUSIC : ON";
+                                        }
+                                        music_state=!music_state;
+                                    break;
+                                }
+                            break;
+                        }
                     }
-                }break;
-            }
+                }
+                //Draw the background
+                window.draw(bg);
+                //Mark title
+                MenuController::printTitles(titles, 3, font1, SCREEN_W, SCREEN_H);
+                //Mark options
+                options = new sf::Text[limit];
+                MenuController::printOptions(options_string, options, limit, font2, SCREEN_W, SCREEN_H, selected);
+                //Draw titles and options
+                draw(window, titles, 3);
+                draw(window, options, limit);
+
+                window.display();
+            break;
+
+            //Scores menu
+            case MenuController::SC_ID :
+                limit=MenuController::SC_LIMIT;
+
+                //Window is listening events
+                while(window.pollEvent(event)){
+                    //Window closed
+                    if(event.type==sf::Event::Closed) window.close();
+
+                    //Key pressed
+                    if(event.type==sf::Event::KeyPressed){
+                        switch(event.key.code){
+                            //Previous selection
+                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
+                            break;
+
+                            //Next selection
+                            case sf::Keyboard::Down : selected = (selected+1)%limit;
+                            break;
+
+                            //Press ENTER
+                            case sf::Keyboard::Return :
+                                switch(selected){
+                                    //Go to Main menu
+                                    case MenuController::SC_BACK :
+                                        current_menu=MenuController::MAIN_ID;
+                                        selected=0;
+                                    break;
+                                }
+                            break;
+                        }
+                    }
+                }
+                //Draw the background
+                window.draw(bg);
+                //Mark title
+                MenuController::printTitles(titles, 3, font1, SCREEN_W, SCREEN_H);
+                //Mark options
+                options = new sf::Text[limit];
+                for(int i=0;i<limit-1;i++) getline(scores_file, scores_string[i]);
+                MenuController::printOptions(scores_string, options, limit, font2, SCREEN_W, SCREEN_H, selected);
+                //Draw titles and options
+                draw(window, titles, 3);
+                draw(window, options, limit);
+
+                window.display();
+            break;
+
+            //Credits menu
+            case MenuController::CR_ID :
+                limit=MenuController::CR_LIMIT;
+
+                //Window is listening events
+                while(window.pollEvent(event)){
+                    //Window closed
+                    if(event.type==sf::Event::Closed) window.close();
+
+                    //Key pressed
+                    if(event.type==sf::Event::KeyPressed){
+                        switch(event.key.code){
+                            //Previous selection
+                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
+                            break;
+
+                            //Next selection
+                            case sf::Keyboard::Down : selected = (selected+1)%limit;
+                            break;
+
+                            //Press ENTER
+                            case sf::Keyboard::Return :
+                                switch(selected){
+                                    //Go to Main menu
+                                    case MenuController::CR_BACK :
+                                        current_menu=MenuController::MAIN_ID;
+                                        selected=0;
+                                    break;
+                                }
+                            break;
+                        }
+                    }
+                }
+                //Draw the background
+                window.draw(bg);
+                //Mark options
+                options = new sf::Text[limit];
+                MenuController::printOptions(credits_string, options, limit, font2, SCREEN_W, SCREEN_H, selected);
+                //Draw titles and options
+                draw(window, options, limit);
+
+                window.display();
+            break;
         }
-
-        // Remplissage de l'écran (couleur noire par défaut)
-        app.clear();
-        circle1.setPosition(circle1.getPosition()+speed*clock.restart().asSeconds());
-        gravity(circle1);
-        app.draw(circle1);
-        Text text;
-
-        // Affichage de la fenêtre à l'écran
-        app.display();
     }
-    return EXIT_SUCCESS;
+
+    free(titles);
+    free(options);
+
+    return 0;
 }

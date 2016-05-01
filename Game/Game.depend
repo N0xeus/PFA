@@ -774,13 +774,10 @@
 1460938196 c:\users\léo\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 
-1462130216 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1461829890 source:e:\gaetan\documents\github\pfa\game\main.cpp
+	<cmath>
 	<iostream>
-	<fstream>
 	<SFML/Graphics.hpp>
-	<SFML/Audio/Music.hpp>
-	"Character.h"
-	"MenuController.h"
 
 1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
