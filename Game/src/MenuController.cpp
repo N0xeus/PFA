@@ -10,7 +10,7 @@ MenuController::~MenuController()
     //dtor
 }
 
-void MenuController::printTitles(sf::Text* t, int n, sf::Font& font, int sc_width, int sc_heigth){
+void MenuController::printTitles(sf::Text* t, int n, sf::Font& font, int sc_width, int sc_height){
     if(n!=3) return;
     t[0].setString("LGGP");
     t[0].setFont(font);
@@ -18,7 +18,7 @@ void MenuController::printTitles(sf::Text* t, int n, sf::Font& font, int sc_widt
     t[0].setStyle(sf::Text::Bold);
     sf::FloatRect textRec = t[0].getLocalBounds();
     t[0].setOrigin(textRec.width/2.0, textRec.height/2.0);
-    t[0].setPosition(sc_width/2.0, sc_heigth/8.0);
+    t[0].setPosition(sc_width/2.0, sc_height/8.0);
 
     t[1].setString("PROJECT");
     t[1].setFont(font);
@@ -26,17 +26,17 @@ void MenuController::printTitles(sf::Text* t, int n, sf::Font& font, int sc_widt
     t[1].setStyle(sf::Text::Bold);
     textRec = t[1].getLocalBounds();
     t[1].setOrigin(textRec.width/2.0, textRec.height/2.0);
-    t[1].setPosition(sc_width/2.0, 13*sc_heigth/16.0);
+    t[1].setPosition(sc_width/2.0, 13*sc_height/16.0);
 
     t[2].setString("(C) DEVELOPED BY LEO GARREAU & GAETAN PUGET");
     t[2].setFont(font);
     t[2].setCharacterSize(25);
     textRec = t[2].getLocalBounds();
     t[2].setOrigin(textRec.width/2.0, textRec.height/2.0);
-    t[2].setPosition(sc_width/2.0, 15*sc_heigth/16.0);
+    t[2].setPosition(sc_width/2.0, 15*sc_height/16.0);
 }
 
-void MenuController::printOptions(std::string* s, sf::Text* t, int n, sf::Font& font, int sc_width, int sc_heigth, int selection){
+void MenuController::printOptions(std::string* s, sf::Text* t, int n, sf::Font& font, int sc_width, int sc_height, int selection){
     sf::FloatRect textRec;
     for(int i=0;i<n;i++){
         t[i].setString(s[i]);

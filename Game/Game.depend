@@ -774,9 +774,11 @@
 1460938196 c:\users\léo\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 
-1462100530 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1462130216 source:e:\gaetan\documents\github\pfa\game\main.cpp
 	<iostream>
+	<fstream>
 	<SFML/Graphics.hpp>
+	<SFML/Audio/Music.hpp>
 	"Character.h"
 	"MenuController.h"
 
@@ -1174,11 +1176,45 @@
 	<iostream>
 	"TouchableObject.h"
 
-1462100600 e:\gaetan\documents\github\pfa\game\include\menucontroller.h
+1462130403 e:\gaetan\documents\github\pfa\game\include\menucontroller.h
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/Font.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
 
-1462096256 source:e:\gaetan\documents\github\pfa\game\src\menucontroller.cpp
+1462106953 source:e:\gaetan\documents\github\pfa\game\src\menucontroller.cpp
 	"MenuController.h"
+
+1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
 

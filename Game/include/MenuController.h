@@ -19,7 +19,7 @@ class MenuController
             MAIN_LIMIT = 5,
             OP_LIMIT = 3,
             SC_LIMIT = 5,
-            CR_LIMIT = 3,
+            CR_LIMIT = 6,
         };
 
         enum state{
@@ -31,15 +31,19 @@ class MenuController
             MAIN_QUIT = MAIN_LIMIT-1,
 
             //Options menu
-            OP_DIFFICULTY = 5,
-            OP_MUSIC = 6,
-            OP_BACK = OP_LIMIT-1
+            OP_DIFFICULTY = 0,
+            OP_MUSIC = 1,
+            OP_BACK = OP_LIMIT-1,
+
+            //Scores and credits menu
+            SC_BACK = SC_LIMIT-1,
+            CR_BACK = CR_LIMIT-1
         };
 
         MenuController();
         virtual ~MenuController();
         static void printTitles(sf::Text*, int, sf::Font&, int, int);
-        static void printOptions(std::string* s, sf::Text* t, int n, sf::Font& font, int sc_width, int sc_heigth, int selection);
+        static void printOptions(std::string* s, sf::Text* t, int n, sf::Font& font, int sc_width, int sc_height, int selection);
 
     protected:
 
