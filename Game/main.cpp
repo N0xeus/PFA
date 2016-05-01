@@ -40,10 +40,18 @@ int main(void){
     window.clear(sf::Color::Black);
 
     sf::Event event;
+    int limit;
+    sf::Font font1, font2;
+    font1.loadFromFile("font/impact.ttf");
+    font2.loadFromFile("font/Minecraft.ttf");
+    sf::Text* titles;
+    sf::Text* options;
+    string* s;
+
     while(window.isOpen()){
         switch(current_menu){
             case MenuController::MAIN_ID :
-                int limit=MenuController::MAIN_LIMIT;
+                limit=MenuController::MAIN_LIMIT;
 
                 //Window is listening events
                 while(window.pollEvent(event)){
@@ -64,35 +72,88 @@ int main(void){
                                     case MenuController::MAIN_QUIT :
                                         window.close();
                                     break;
+
+                                    case MenuController::MAIN_OPTIONS :
+                                        current_menu=MenuController::OP_ID;
+                                        selected=0;
+                                    break;
                                 }
                             break;
                         }
                     }
                 }
-                sf::Font font1, font2;
 
                 //Draw the background
                 window.draw(bg);
                 //Mark title
-                font1.loadFromFile("font/impact.ttf");
-                sf::Text titles[3];
+                titles=new sf::Text[3];
                 MenuController::printTitles(titles, 3, font1, SCREEN_W, SCREEN_H);
                 //Mark options
-                sf::Text options[5];
-                std::string s[5] = {"PLAY", "OPTIONS", "SCORES", "CREDITS", "QUIT"};
-                font2.loadFromFile("font/Minecraft.ttf");
+                options = new sf::Text[limit];
+                s = new string[limit];
+                s[0] = "PLAY";
+                s[1] = "OPTIONS";
+                s[2] = "SCORES";
+                s[3] = "CREDITS";
+                s[4] = "QUIT";
                 MenuController::printOptions(s, options, 5, font2, SCREEN_W, SCREEN_H, selected);
                 //Draw titles and options
                 draw(window, titles, 3);
-                draw(window, options, 5);
+                draw(window, options, limit);
 
                 window.display();
-                free(titles);
-                free(options);
-                free(s);
+            break;
+
+            case MenuController::OP_ID :
+                limit=MenuController::OP_LIMIT;
+
+                //Window is listening events
+                while(window.pollEvent(event)){
+                    //Window closed
+                    if(event.type==sf::Event::Closed) window.close();
+
+                    //Key pressed
+                    if(event.type==sf::Event::KeyPressed){
+                        switch(event.key.code){
+                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
+                            break;
+
+                            case sf::Keyboard::Down : selected = (selected+1)%limit;
+                            break;
+
+                            case sf::Keyboard::Return :
+                                switch(selected){
+                                    case MenuController::OP_BACK :
+                                        current_menu=MenuController::MAIN_ID;
+                                    break;
+                                }
+                            break;
+                        }
+                    }
+                }
+                //Draw the background
+                window.draw(bg);
+                //Mark title
+                MenuController::printTitles(titles, 3, font1, SCREEN_W, SCREEN_H);
+                //Mark options
+                options = new sf::Text[limit];
+                s = new string[limit];
+                s[0] = "DIFFICULTY";
+                s[1] = "MUSIC";
+                s[2] = "BACK";
+                MenuController::printOptions(s, options, limit, font2, SCREEN_W, SCREEN_H, selected);
+                //Draw titles and options
+                draw(window, titles, 3);
+                draw(window, options, limit);
+
+                window.display();
             break;
         }
     }
+
+    free(titles);
+    free(options);
+    free(s);
 
     return 0;
 }

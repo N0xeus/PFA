@@ -15,27 +15,26 @@ class MenuController
             CR_ID = 3,
         };
 
-        //Main menu
-        enum main{
+        enum limit{
+            MAIN_LIMIT = 5,
+            OP_LIMIT = 3,
+            SC_LIMIT = 5,
+            CR_LIMIT = 3,
+        };
+
+        enum state{
+            //Main menu
             MAIN_PLAY = 0,
             MAIN_OPTIONS = 1,
             MAIN_SCORES = 2,
             MAIN_CREDITS = 3,
-            MAIN_QUIT = 4,
-            MAIN_LIMIT = 5
+            MAIN_QUIT = MAIN_LIMIT-1,
+
+            //Options menu
+            OP_DIFFICULTY = 5,
+            OP_MUSIC = 6,
+            OP_BACK = OP_LIMIT-1
         };
-
-        //Options menu
-        const int OP_DIFFICULTY = 5;
-        const int OP_MUSIC = 6;
-        const int OP_BACK = 7;
-        const int OP_LIMIT = 3;
-
-        //Scores menu
-        const int SC_LIMIT = 5;
-
-        //Credits menu
-        const int CR_LIMIT = 3;
 
         MenuController();
         virtual ~MenuController();
