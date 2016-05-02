@@ -46,8 +46,14 @@ int main(void){
     sf::Music music;
     music.openFromFile("audio/menu.wav");
     music.setLoop(true);
-    music.setVolume(30.);
+    music.setVolume(50.);
     music.play();
+
+    //Validation song
+    sf::SoundBuffer buffer;
+    buffer.loadFromFile("audio/validation.wav");
+    sf::Sound sound;
+    sound.setBuffer(buffer);
 
     //Clear the window with a black screen
     window.clear(sf::Color::Black);
@@ -93,7 +99,7 @@ int main(void){
                             break;
 
                             //Press ENTER
-                            case sf::Keyboard::Return :
+                            case sf::Keyboard::Return : sound.play();
                                 switch(selected){
                                     //Quit
                                     case MenuController::MAIN_QUIT :
@@ -158,6 +164,58 @@ int main(void){
                             case sf::Keyboard::Down : selected = (selected+1)%limit;
                             break;
 
+                            case sf::Keyboard::Left :
+                                switch(selected){
+                                    //Change difficulty
+                                    case MenuController::OP_DIFFICULTY :
+                                        if(difficulty==2){
+                                            difficulty--;
+                                            options_string[MenuController::OP_DIFFICULTY]="DIFFICULTY : NORMAL";
+                                            sound.play();
+                                        }else if(difficulty==1){
+                                            difficulty--;
+                                            options_string[MenuController::OP_DIFFICULTY]="DIFFICULTY : NOOB";
+                                            sound.play();
+                                        }
+                                    break;
+
+                                    //Change music state
+                                    case MenuController::OP_MUSIC :
+                                        if(!music_state){
+                                            music_state=!music_state;
+                                            options_string[MenuController::OP_MUSIC]="MUSIC : ON";
+                                            music.play();
+                                        }
+                                    break;
+                                }
+                            break;
+
+                            case sf::Keyboard::Right :
+                                switch(selected){
+                                    //Change difficulty
+                                    case MenuController::OP_DIFFICULTY :
+                                        if(difficulty==0){
+                                            difficulty++;
+                                            options_string[MenuController::OP_DIFFICULTY]="DIFFICULTY : NORMAL";
+                                            sound.play();
+                                        }else if(difficulty==1){
+                                            difficulty++;
+                                            options_string[MenuController::OP_DIFFICULTY]="DIFFICULTY : TRY HARDER";
+                                            sound.play();
+                                        }
+                                    break;
+
+                                    //Change music state
+                                    case MenuController::OP_MUSIC :
+                                        if(music_state){
+                                            music_state=!music_state;
+                                            options_string[MenuController::OP_MUSIC]="MUSIC : OFF";
+                                            music.stop();
+                                        }
+                                    break;
+                                }
+                            break;
+
                             //Press ENTER
                             case sf::Keyboard::Return :
                                 switch(selected){
@@ -165,31 +223,7 @@ int main(void){
                                     case MenuController::OP_BACK :
                                         current_menu=MenuController::MAIN_ID;
                                         selected=0;
-                                    break;
-
-                                    //Change difficulty
-                                    case MenuController::OP_DIFFICULTY :
-                                        if(difficulty==0){
-                                            options_string[MenuController::OP_DIFFICULTY] = "DIFFICULTY : NORMAL";
-                                        }else if(difficulty==1){
-                                            options_string[MenuController::OP_DIFFICULTY] = "DIFFICULTY : TRY HARDER";
-                                        }else{
-                                            options_string[MenuController::OP_DIFFICULTY] = "DIFFICULTY : NOOB";
-                                        }
-                                        difficulty=(difficulty+1)%3;
-                                    break;
-
-                                    //Change music state
-                                    case MenuController::OP_MUSIC :
-                                        if(music_state){
-                                            music.stop();
-                                            options_string[MenuController::OP_MUSIC] = "MUSIC : OFF";
-                                        }
-                                        else{
-                                            music.play();
-                                            options_string[MenuController::OP_MUSIC] = "MUSIC : ON";
-                                        }
-                                        music_state=!music_state;
+                                        sound.play();
                                     break;
                                 }
                             break;
@@ -231,7 +265,7 @@ int main(void){
                             break;
 
                             //Press ENTER
-                            case sf::Keyboard::Return :
+                            case sf::Keyboard::Return : sound.play();
                                 switch(selected){
                                     //Go to Main menu
                                     case MenuController::SC_BACK :
@@ -279,7 +313,7 @@ int main(void){
                             break;
 
                             //Press ENTER
-                            case sf::Keyboard::Return :
+                            case sf::Keyboard::Return : sound.play();
                                 switch(selected){
                                     //Go to Main menu
                                     case MenuController::CR_BACK :
