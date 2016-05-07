@@ -1,40 +1,86 @@
+#include <cmath>
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-using namespace std;
+using namespace sf;
+
+Vector2f speed(0.,0.);
+RectangleShape rect(Vector2f(100,100));
+
+void move(){
+    Vector2f pos = rect.getPosition();
+
+    rect.setPosition(pos+speed);
+}
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800,500), "Tesssssst!!!");
-    while(window.isOpen())
+    RenderWindow app(VideoMode(800, 600), "Balles !");
+    app.setFramerateLimit(60);
+
+    Clock clock;
+    Texture i;
+    i.loadFromFile("img/bg1.jpg");
+    RectangleShape bg = RectangleShape(Vector2f(1600,600));
+    bg.setTexture(&i);
+    View v;
+    v.reset(FloatRect(0,0,800,600));
+
+    rect.setOrigin(50,50);
+    rect.setPosition(100, 300);
+
+    // Boucle principale
+    while (app.isOpen())
     {
-        sf::Event event;
-        while(window.pollEvent(event))
-        {
-            if(event.type == sf::Event::Closed)
-                window.close();
+        Event event;
+
+        while (app.pollEvent(event)){
+            switch(event.type){
+                case Event::Closed : app.close(); break;
+
+                case Event::KeyPressed : {
+                    switch(event.key.code){
+                        case Keyboard::Left :
+                        case Keyboard::Q : {
+                            speed=Vector2f(-10,0);
+                        }break;
+
+                        case Keyboard::Right :
+                        case Keyboard::D : {
+                            speed=Vector2f(10,0);
+                        }break;
+                    }
+                }break;
+
+                case Event::KeyReleased : {
+                    switch(event.key.code){
+                        case Keyboard::Left :
+                        case Keyboard::Q : {
+                            speed=Vector2f(0,0);
+                        }break;
+
+                        case Keyboard::Right :
+                        case Keyboard::D : {
+                            speed=Vector2f(0,0);
+                        }break;
+                    }
+                }break;
+            }
         }
 
-        window.clear(sf::Color::Black);
+        // Remplissage de l'écran (couleur noire par défaut)
+        app.clear();
+        move();
 
-        sf::Sprite sprite;
-        sf::Texture texture;
-        if(!texture.loadFromFile("poke.jpg", sf::IntRect(125,100,50,50))){
-            cout << "erreur de chargelent de l'image" << endl;
-        }
-        texture.setSmooth(true);
-        sprite.setTexture(texture);
-        sprite.setColor(sf::Color(255,0,128));
+        app.draw(bg);
+        app.draw(rect);
+        Vector2f pos = rect.getPosition();
+        if(pos.x>v.getCenter().x) v.setCenter(rect.getPosition());
+        if(pos.x<v.getCenter().x-300) v.move(Vector2f(-10,0));
+        app.setView(v);
 
-        sf::CircleShape shape(50);
-        shape.setFillColor(sf::Color(100,250,50));
-        shape.setPosition(75,75);
-
-
-        window.draw(sprite);
-        window.draw(shape);
-
-        window.display();
+        // Affichage de la fenêtre à l'écran
+        app.display();
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

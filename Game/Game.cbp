@@ -32,6 +32,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="sfml-audio" />
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
@@ -47,9 +48,11 @@
 			<Add directory="lib" />
 		</Linker>
 		<Unit filename="include/Character.h" />
+		<Unit filename="include/MenuController.h" />
 		<Unit filename="include/TouchableObject.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/MenuController.cpp" />
 		<Unit filename="src/TouchableObject.cpp" />
 		<Extensions>
 			<code_completion />
