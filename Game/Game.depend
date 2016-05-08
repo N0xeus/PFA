@@ -774,7 +774,7 @@
 1460938196 c:\users\léo\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 
-1462197711 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1462573633 source:e:\gaetan\documents\github\pfa\game\main.cpp
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -1160,23 +1160,24 @@
 	<string>
 	<vector>
 
-1461843971 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
+1462573517 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
 	"Character.h"
 	<iostream>
 
-1461930597 e:\gaetan\documents\github\pfa\game\include\character.h
+1462573279 e:\gaetan\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
+	<Attack.h>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1461843782 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
+1462619322 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
 	<SFML/Graphics/Rect.hpp>
 
 1461843990 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
 	<iostream>
 	"TouchableObject.h"
 
-1462130403 e:\gaetan\documents\github\pfa\game\include\menucontroller.h
+1462572201 e:\gaetan\documents\github\pfa\game\include\menucontroller.h
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/Font.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
@@ -1286,4 +1287,53 @@
 1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+
+1462557783 source:e:\gaetan\documents\github\pfa\game\src\attack.cpp
+	"Attack.h"
+
+1462573318 e:\gaetan\documents\github\pfa\game\include\attack.h
+	<TouchableObject.h>
+	<SFML/System/Time.hpp>
+
+1462550323 source:e:\gaetan\documents\github\pfa\game\src\obstacle.cpp
+	"Obstacle.h"
+
+1462613643 e:\gaetan\documents\github\pfa\game\include\obstacle.h
+	<TouchableObject.h>
+
+1462567508 source:e:\gaetan\documents\github\pfa\game\src\bonus.cpp
+	"Bonus.h"
+
+1462567653 e:\gaetan\documents\github\pfa\game\include\bonus.h
+	<Pickable.h>
+
+1462614210 e:\gaetan\documents\github\pfa\game\include\pickable.h
+	<TouchableObject.h>
+	<SFML/System/Time.hpp>
+
+1462573556 source:e:\gaetan\documents\github\pfa\game\src\life.cpp
+	"Life.h"
+
+1462571091 e:\gaetan\documents\github\pfa\game\include\life.h
+	<Pickable.h>
+
+1462555941 source:e:\gaetan\documents\github\pfa\game\src\pickable.cpp
+	"Pickable.h"
+
+1462573525 source:e:\gaetan\documents\github\pfa\game\src\hth.cpp
+	"HtH.h"
+
+1462570898 e:\gaetan\documents\github\pfa\game\include\hth.h
+	<Attack.h>
+
+1462569630 source:e:\gaetan\documents\github\pfa\game\src\pickablefactory.cpp
+	"PickableFactory.h"
+
+1462569630 e:\gaetan\documents\github\pfa\game\include\pickablefactory.h
+
+1462563124 source:e:\gaetan\documents\github\pfa\game\src\projectile.cpp
+	"Projectile.h"
+
+1462563013 e:\gaetan\documents\github\pfa\game\include\projectile.h
+	<Attack.h>
 

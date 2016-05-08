@@ -47,12 +47,28 @@
 		<Linker>
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="include/Attack.h" />
+		<Unit filename="include/Bonus.h" />
 		<Unit filename="include/Character.h" />
+		<Unit filename="include/HtH.h" />
+		<Unit filename="include/Life.h" />
 		<Unit filename="include/MenuController.h" />
+		<Unit filename="include/Obstacle.h" />
+		<Unit filename="include/Pickable.h" />
+		<Unit filename="include/PickableFactory.h" />
+		<Unit filename="include/Projectile.h" />
 		<Unit filename="include/TouchableObject.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Attack.cpp" />
+		<Unit filename="src/Bonus.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/HtH.cpp" />
+		<Unit filename="src/Life.cpp" />
 		<Unit filename="src/MenuController.cpp" />
+		<Unit filename="src/Obstacle.cpp" />
+		<Unit filename="src/Pickable.cpp" />
+		<Unit filename="src/PickableFactory.cpp" />
+		<Unit filename="src/Projectile.cpp" />
 		<Unit filename="src/TouchableObject.cpp" />
 		<Extensions>
 			<code_completion />

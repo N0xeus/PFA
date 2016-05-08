@@ -210,7 +210,7 @@ int main(void){
                                         if(music_state){
                                             music_state=!music_state;
                                             options_string[MenuController::OP_MUSIC]="MUSIC : OFF";
-                                            music.stop();
+                                            music.pause();
                                         }
                                     break;
                                 }
@@ -265,12 +265,13 @@ int main(void){
                             break;
 
                             //Press ENTER
-                            case sf::Keyboard::Return : sound.play();
+                            case sf::Keyboard::Return :
                                 switch(selected){
                                     //Go to Main menu
                                     case MenuController::SC_BACK :
                                         current_menu=MenuController::MAIN_ID;
                                         selected=0;
+                                        sound.play();
                                     break;
                                 }
                             break;
@@ -313,12 +314,13 @@ int main(void){
                             break;
 
                             //Press ENTER
-                            case sf::Keyboard::Return : sound.play();
+                            case sf::Keyboard::Return :
                                 switch(selected){
                                     //Go to Main menu
                                     case MenuController::CR_BACK :
                                         current_menu=MenuController::MAIN_ID;
                                         selected=0;
+                                        sound.play();
                                     break;
                                 }
                             break;

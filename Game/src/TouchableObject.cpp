@@ -15,8 +15,3 @@ TouchableObject::~TouchableObject()
 bool TouchableObject::intersects(TouchableObject& to){
     return hitbox.intersects(to.getHitbox());
 }
-
-void TouchableObject::print(){
-    std::cout<<"[TouchableObject "<<id<<"] "<<std::endl;
-    std::cout<<"    Hitbox ["<<hitbox.width<<","<<hitbox.height<<"] "<<std::endl;
-}
