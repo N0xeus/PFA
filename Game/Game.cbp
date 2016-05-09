@@ -47,13 +47,17 @@
 		<Linker>
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="include/Boss.h" />
 		<Unit filename="include/Character.h" />
+		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/MenuController.h" />
 		<Unit filename="include/Node.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/TouchableObject.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Boss.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/MenuController.cpp" />
 		<Unit filename="src/Node.cpp" />
 		<Unit filename="src/Point.cpp" />

@@ -6,6 +6,7 @@
 class TouchableObject
 {
     public:
+        TouchableObject();
         TouchableObject(int id, const sf::IntRect box);
         virtual ~TouchableObject();
 

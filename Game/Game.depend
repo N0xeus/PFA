@@ -381,6 +381,7 @@
 	<string>
 	<vector>
 
+<<<<<<< HEAD
 1462725502 source:c:\users\léo\documents\github\pfa\game\main.cpp
 	<iostream>
 	<cmath>
@@ -395,6 +396,15 @@
 	<SFML/Graphics.hpp>
 	"Character.h"
 	"TouchableObject.h"
+=======
+1462726664 source:c:\users\léo\documents\github\pfa\game\main.cpp
+	<iostream>
+	<fstream>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"Character.h"
+	"MenuController.h"
+>>>>>>> origin/master
 
 1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1414,6 +1424,7 @@
 1462641708 source:c:\users\léo\documents\github\pfa\game\src\menucontroller.cpp
 	"MenuController.h"
 
+<<<<<<< HEAD
 1462667410 c:\users\léo\documents\github\pfa\game\include\node.h
 	"Point.h"
 
@@ -1423,5 +1434,16 @@
 	"Node.h"
 
 1462712933 source:c:\users\léo\documents\github\pfa\game\src\point.cpp
+=======
+1462727266 source:c:\users\léo\documents\github\pfa\game\src\node.cpp
+	"Node.h"
+
+1462727291 c:\users\léo\documents\github\pfa\game\include\node.h
+	"Point.h"
+
+1462727268 c:\users\léo\documents\github\pfa\game\include\point.h
+
+1462727291 source:c:\users\léo\documents\github\pfa\game\src\point.cpp
+>>>>>>> origin/master
 	"Point.h"
 
