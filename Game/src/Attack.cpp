@@ -14,7 +14,7 @@ Attack::~Attack()
 }
 
 bool Attack::isReady(sf::Time t){
-    sf::Time diff = previousHit - t;
+    sf::Time diff = t - previousHit;
     if(diff>=speed){
         setEnable(true);
         previousHit=t;
