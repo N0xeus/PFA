@@ -1,6 +1,12 @@
 #include "Character.h"
 #include <iostream>
 
+Character::Character()
+{
+    //default constructor
+}
+
+
 Character::Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp):TouchableObject(id, box)
 {
     this->speed=speed;
