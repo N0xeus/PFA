@@ -1,6 +1,11 @@
 #include <iostream>
 #include "TouchableObject.h"
 
+TouchableObject::TouchableObject()
+{
+
+}
+
 TouchableObject::TouchableObject(int id, const sf::IntRect box)
 {
     this->id=id;
