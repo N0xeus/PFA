@@ -47,6 +47,14 @@ class Projectile : public Attack
         ////////////////////////////////////////////////////////////
         void setMvtSpeedY(float val) { ms.y = val; }
 
+        ////////////////////////////////////////////////////////////
+        /// \brief Moving projectile creation
+        ///
+        /// Return a moving Projectile instance
+        ///
+        ////////////////////////////////////////////////////////////
+        Projectile* create(sf::Time t);
+
     protected:
 
     private:
