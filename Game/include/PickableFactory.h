@@ -23,7 +23,7 @@ class PickableFactory
         /// Create the pickable factory
         ///
         ////////////////////////////////////////////////////////////
-        PickableFactory(int frequency);
+        PickableFactory(float frequency);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
@@ -37,7 +37,7 @@ class PickableFactory
         /// \return Drop frequency
         ///
         ////////////////////////////////////////////////////////////
-        int getDropFrequency(){ return drop_frequency; }
+        sf::Time getDropFrequency(){ return drop_frequency; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Setter of frequency
@@ -45,7 +45,7 @@ class PickableFactory
         /// \param f New frequency
         ///
         ////////////////////////////////////////////////////////////
-        void setDropFrequency(int f){ drop_frequency=f; }
+        void setDropFrequency(float f){ drop_frequency=sf::seconds(f); }
 
         ////////////////////////////////////////////////////////////
         /// \brief Pickable creation
@@ -53,7 +53,7 @@ class PickableFactory
         /// Return a Pickable instance
         ///
         ////////////////////////////////////////////////////////////
-        Pickable* createPickable(sf::Vector2f screen, sf::Vector2f pos, sf::Time t);
+        Pickable* createPickable(sf::Vector2i screen, sf::Vector2i pos, sf::Time t);
 
     protected:
 
@@ -61,8 +61,8 @@ class PickableFactory
         ////////////////////////////////////////////////////////////
         // Member data
         ////////////////////////////////////////////////////////////
-        int drop_frequency;     ///Frequency of creation
-        int lastId;             ///Identifier of the last creation
+        sf::Time drop_frequency;     ///Frequency of creation
+        int lastId;                 ///Identifier of the last creation
         sf::Time lastTime;          ///Time of the last creation
 };
 

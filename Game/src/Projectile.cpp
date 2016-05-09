@@ -12,10 +12,10 @@ Projectile::~Projectile()
 
 
 Projectile* Projectile::create(sf::Time t){
-    Projectile* p=nullptr;
+    Projectile* p=NULL;
 
     if(isReady(t)){
-        p = new Projectile(id, sf::Vector2i(100,100), power, 0, sf::Vector2f(10,0));
+        p = new Projectile(id, sf::IntRect(hitbox.left, hitbox.top,100,100), power, 0, sf::Vector2f(10,0));
     }
 
     return p;

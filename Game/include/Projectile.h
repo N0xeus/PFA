@@ -48,6 +48,22 @@ class Projectile : public Attack
         void setMvtSpeedY(float val) { ms.y = val; }
 
         ////////////////////////////////////////////////////////////
+        /// \brief Determine the attack type
+        ///
+        /// Return true if the attack is a hand to hand attack
+        ///
+        ////////////////////////////////////////////////////////////
+        bool isHtH(){ return false; }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Determine the attack type
+        ///
+        /// Return true if the attack is a distance attack
+        ///
+        ////////////////////////////////////////////////////////////
+        bool isProjectile(){ return true; }
+
+        ////////////////////////////////////////////////////////////
         /// \brief Moving projectile creation
         ///
         /// Return a moving Projectile instance

@@ -4,10 +4,10 @@
 #include <iostream>
 #include <ctime>
 
-PickableFactory::PickableFactory(int frequency)
+PickableFactory::PickableFactory(float frequency)
 {
-    drop_frequency=frequency;
-    lastTime = lastTime.asSeconds(0);
+    drop_frequency=sf::seconds(frequency);
+    lastTime = sf::seconds(0);
     lastId=100;
 }
 
@@ -17,7 +17,7 @@ PickableFactory::~PickableFactory()
 }
 
 Pickable* PickableFactory::createPickable(sf::Vector2i screen, sf::Vector2i pos, sf::Time t){
-    Pickable* p=nullptr;
+    Pickable* p=NULL;
     int r1;
     int r2;
 
@@ -27,11 +27,11 @@ Pickable* PickableFactory::createPickable(sf::Vector2i screen, sf::Vector2i pos,
         if(r1==0){
             r1=rand()%screen.x/2;
             r2=rand()%screen.y/2;
-            p = new Bonus(lastId+1, sf::IntRect(pos+Vector2i(r1, r2), Vector2i(100,100)));
+            p = new Bonus(lastId+1, sf::IntRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
         }else{
             r1=rand()%screen.x/2;
             r2=rand()%screen.y/2;
-            p = new Life(lastId+1, sf::IntRect(pos+Vector2i(r1, r2), Vector2i(100,100)));
+            p = new Life(lastId+1, sf::IntRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
         }
         lastId++;
         lastTime=t;
