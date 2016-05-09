@@ -1,63 +1,48 @@
-#ifndef TOUCHABLEOBJECT_H
-#define TOUCHABLEOBJECT_H
+#ifndef PICKABLE_H
+#define PICKABLE_H
 
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Rect.hpp>
+#include <TouchableObject.h>
+#include <SFML/System/Time.hpp>
 
 ////////////////////////////////////////////////////////////
-/// \brief Object with a hitbox which can be touched by \link Attack
+/// \brief Object which can be picked by a Character
 ///
 ////////////////////////////////////////////////////////////
-class TouchableObject
+class Pickable : public TouchableObject
 {
     public:
-<<<<<<< HEAD
-        TouchableObject();
-=======
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
-        /// \param id Identifier
-        /// \param box Physical rectangle representation
-        ///
-        /// Create an object with a identifier and a rectangular hitbox
-        ///
+        /// Create a specific \link TouchableObject
         ///
         ////////////////////////////////////////////////////////////
->>>>>>> Gaetan_branch
-        TouchableObject(int id, const sf::IntRect box);
+        Pickable(int id, const sf::IntRect box);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
         ///
         ////////////////////////////////////////////////////////////
-        virtual ~TouchableObject();
+        virtual ~Pickable();
 
         ////////////////////////////////////////////////////////////
-        /// \brief Getter of identifier
+        /// \brief Getter of capacity to be picked
         ///
-        /// \return Identifier
+        /// Return true if the Pickable is really pickable
+        ///
         ////////////////////////////////////////////////////////////
-        int getId() { return id; }
+        bool isEnable() { return enable; }
 
         ////////////////////////////////////////////////////////////
-        /// \brief Getter of hitbox
+        /// \brief Setter of capacity to be picked
         ///
-        /// \return Hitbox
-        ////////////////////////////////////////////////////////////
-        sf::IntRect getHitbox() { return hitbox; }
-
-        ////////////////////////////////////////////////////////////
-        /// \brief Determine the collision
-        ///
-        /// \param to Other TouchableObject which can be in collision
-        ///
-        /// Return true if the two objects are in collision
+        /// \param b New value
         ///
         ////////////////////////////////////////////////////////////
-        bool intersects(TouchableObject& to);
+        void setEnable(bool b) { enable=b; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -65,7 +50,7 @@ class TouchableObject
         /// Return true if the object is an \link Attack
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isAttack()=0;
+        bool isAttack(){ return false; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -73,7 +58,7 @@ class TouchableObject
         /// Return true if the object is an \link Character
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isCharacter()=0;
+        bool isCharacter(){ return false; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -81,7 +66,7 @@ class TouchableObject
         /// Return true if the object is an \link Obstacle
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isObstacle()=0;
+        bool isObstacle(){ return false; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -89,17 +74,31 @@ class TouchableObject
         /// Return true if the object is an \link Pickable
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isPickable()=0;
+        bool isPickable(){ return true; }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Determine the Pickable type
+        ///
+        /// Return true if the Pickable is a \link Bonus
+        ///
+        ////////////////////////////////////////////////////////////
+        virtual bool isBonus()=0;
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Determine the Pickable type
+        ///
+        /// Return true if the Pickable is a \link Life
+        ///
+        ////////////////////////////////////////////////////////////
+        virtual bool isLife()=0;
 
     protected:
         ////////////////////////////////////////////////////////////
         // Member data
         ////////////////////////////////////////////////////////////
-        int id;                 /// Identifier
-        sf::IntRect hitbox;     /// Rectangular hitbox
+        bool enable;    ///Enable to be picked
 
     private:
-
 };
 
-#endif // TOUCHABLEOBJECT_H
+#endif // PICKABLE_H

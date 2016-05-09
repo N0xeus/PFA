@@ -125,6 +125,9 @@ int main(void){
                                     break;
                                 }
                             break;
+
+                            default :
+                            break;
                         }
                     }
                 }
@@ -210,7 +213,7 @@ int main(void){
                                         if(music_state){
                                             music_state=!music_state;
                                             options_string[MenuController::OP_MUSIC]="MUSIC : OFF";
-                                            music.stop();
+                                            music.pause();
                                         }
                                     break;
                                 }
@@ -226,6 +229,9 @@ int main(void){
                                         sound.play();
                                     break;
                                 }
+                            break;
+
+                            default:
                             break;
                         }
                     }
@@ -246,6 +252,7 @@ int main(void){
 
             //Scores menu
             case MenuController::SC_ID :
+                selected=MenuController::SC_BACK;
                 limit=MenuController::SC_LIMIT;
 
                 //Window is listening events
@@ -256,23 +263,19 @@ int main(void){
                     //Key pressed
                     if(event.type==sf::Event::KeyPressed){
                         switch(event.key.code){
-                            //Previous selection
-                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
-                            break;
-
-                            //Next selection
-                            case sf::Keyboard::Down : selected = (selected+1)%limit;
-                            break;
-
                             //Press ENTER
-                            case sf::Keyboard::Return : sound.play();
+                            case sf::Keyboard::Return :
                                 switch(selected){
                                     //Go to Main menu
                                     case MenuController::SC_BACK :
                                         current_menu=MenuController::MAIN_ID;
                                         selected=0;
+                                        sound.play();
                                     break;
                                 }
+                            break;
+
+                            default:
                             break;
                         }
                     }
@@ -294,6 +297,7 @@ int main(void){
 
             //Credits menu
             case MenuController::CR_ID :
+                selected=MenuController::CR_BACK;
                 limit=MenuController::CR_LIMIT;
 
                 //Window is listening events
@@ -304,23 +308,19 @@ int main(void){
                     //Key pressed
                     if(event.type==sf::Event::KeyPressed){
                         switch(event.key.code){
-                            //Previous selection
-                            case sf::Keyboard::Up : selected = (selected+(limit-1))%limit;
-                            break;
-
-                            //Next selection
-                            case sf::Keyboard::Down : selected = (selected+1)%limit;
-                            break;
-
                             //Press ENTER
-                            case sf::Keyboard::Return : sound.play();
+                            case sf::Keyboard::Return :
                                 switch(selected){
                                     //Go to Main menu
                                     case MenuController::CR_BACK :
                                         current_menu=MenuController::MAIN_ID;
                                         selected=0;
+                                        sound.play();
                                     break;
                                 }
+                            break;
+
+                            default:
                             break;
                         }
                     }

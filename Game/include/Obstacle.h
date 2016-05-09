@@ -1,63 +1,67 @@
-#ifndef TOUCHABLEOBJECT_H
-#define TOUCHABLEOBJECT_H
+#ifndef OBSTACLE_H
+#define OBSTACLE_H
 
 ////////////////////////////////////////////////////////////
-// Headers
+// Header
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Rect.hpp>
+#include <TouchableObject.h>
 
 ////////////////////////////////////////////////////////////
-/// \brief Object with a hitbox which can be touched by \link Attack
+/// \brief Obstacle constrain Character to move correctly
 ///
 ////////////////////////////////////////////////////////////
-class TouchableObject
+class Obstacle : public TouchableObject
 {
     public:
-<<<<<<< HEAD
-        TouchableObject();
-=======
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
-        /// \param id Identifier
-        /// \param box Physical rectangle representation
+        /// \param resistance Resistance against \link Character attack
         ///
-        /// Create an object with a identifier and a rectangular hitbox
+        /// Create a \link TouchableObject with resistance
         ///
+        /// \see Attack
         ///
         ////////////////////////////////////////////////////////////
->>>>>>> Gaetan_branch
-        TouchableObject(int id, const sf::IntRect box);
+        Obstacle(int id, const sf::IntRect box, int resistance);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
         ///
         ////////////////////////////////////////////////////////////
-        virtual ~TouchableObject();
+        virtual ~Obstacle();
 
         ////////////////////////////////////////////////////////////
-        /// \brief Getter of identifier
+        /// \brief Getter of current resistance
         ///
-        /// \return Identifier
+        /// \return Resistance
+        ///
         ////////////////////////////////////////////////////////////
-        int getId() { return id; }
+        int getRes(){ return res; }
 
         ////////////////////////////////////////////////////////////
-        /// \brief Getter of hitbox
+        /// \brief Setter of current resistance
         ///
-        /// \return Hitbox
+        /// \param New resistance
+        ///
         ////////////////////////////////////////////////////////////
-        sf::IntRect getHitbox() { return hitbox; }
+        void setRes(int val){ res=val; }
 
         ////////////////////////////////////////////////////////////
-        /// \brief Determine the collision
+        /// \brief Getter of destruction property
         ///
-        /// \param to Other TouchableObject which can be in collision
-        ///
-        /// Return true if the two objects are in collision
+        /// Return true if the object is destructible
         ///
         ////////////////////////////////////////////////////////////
-        bool intersects(TouchableObject& to);
+        bool isDestructible(){ return destructible; }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Setter of destructible property
+        ///
+        /// \param New destruction property
+        ///
+        ////////////////////////////////////////////////////////////
+        void setDestructible(bool b){ destructible=b; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -65,7 +69,7 @@ class TouchableObject
         /// Return true if the object is an \link Attack
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isAttack()=0;
+        bool isAttack(){ return false; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -73,7 +77,7 @@ class TouchableObject
         /// Return true if the object is an \link Character
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isCharacter()=0;
+        bool isCharacter(){ return false; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -81,7 +85,7 @@ class TouchableObject
         /// Return true if the object is an \link Obstacle
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isObstacle()=0;
+        bool isObstacle(){ return true; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
@@ -89,17 +93,25 @@ class TouchableObject
         /// Return true if the object is an \link Pickable
         ///
         ////////////////////////////////////////////////////////////
-        virtual bool isPickable()=0;
+        bool isPickable(){ return false; }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Determine if the object was destroyed
+        ///
+        /// Return true if there is not enough resistance
+        ///
+        ////////////////////////////////////////////////////////////
+        bool wasDestroyed();
 
     protected:
-        ////////////////////////////////////////////////////////////
-        // Member data
-        ////////////////////////////////////////////////////////////
-        int id;                 /// Identifier
-        sf::IntRect hitbox;     /// Rectangular hitbox
 
     private:
-
+        ////////////////////////////////////////////////////////////
+        /// Member data
+        ////////////////////////////////////////////////////////////
+        int res;            /// Current resistance
+        int resMax;         /// Resistance maximum
+        bool destructible;  /// Destruction property, true if destructible
 };
 
-#endif // TOUCHABLEOBJECT_H
+#endif // OBSTACLE_H

@@ -1,28 +1,38 @@
 #ifndef MENUCONTROLLER_H
 #define MENUCONTROLLER_H
 
+////////////////////////////////////////////////////////////
+// Header
+////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
+////////////////////////////////////////////////////////////
+/// \brief Menu controller to choose different screen or modify options
+///
+////////////////////////////////////////////////////////////
 class MenuController
 {
     public:
-        enum id{
+        ////////////////////////////////////////////////////////////
+        // Member data
+        ////////////////////////////////////////////////////////////
+        enum id{                        /// Screen identifiers
             MAIN_ID = 0,
             OP_ID = 1,
             SC_ID = 2,
             CR_ID = 3,
         };
 
-        enum limit{
+        enum limit{                     /// Limit numbers of possibilities
             MAIN_LIMIT = 5,
             OP_LIMIT = 3,
             SC_LIMIT = 5,
             CR_LIMIT = 6,
         };
 
-        enum state{
+        enum state{                     /// Possibility identifiers for each screen
             //Main menu
             MAIN_PLAY = 0,
             MAIN_OPTIONS = 1,
@@ -40,10 +50,53 @@ class MenuController
             CR_BACK = CR_LIMIT-1
         };
 
+        ////////////////////////////////////////////////////////////
+        /// \brief Constructor
+        ///
+        ////////////////////////////////////////////////////////////
         MenuController();
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Destructor
+        ///
+        ////////////////////////////////////////////////////////////
         virtual ~MenuController();
-        static void printTitles(sf::Text*, int, sf::Font&, int, int);
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Print options on the screen
+        ///
+        /// \param s String array to put into displayable text
+        /// \param t Text array to display
+        /// \param n Size of arrays
+        /// \param font Font to use
+        /// \param sc_width Screen width
+        /// \param sc_height Screen height
+        /// \param selection Selectionned option
+        ///
+        /// Initiate displayable text with string
+        ///
+        /// \see sf::Text
+        /// \see sf::Font
+        ///
+        ////////////////////////////////////////////////////////////
         static void printOptions(std::string* s, sf::Text* t, int n, sf::Font& font, int sc_width, int sc_height, int selection);
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Print titles on the screen
+        ///
+        /// \param t Text array to display
+        /// \param n Size of arrays
+        /// \param font Font to use
+        /// \param sc_width Screen width
+        /// \param sc_height Screen height
+        ///
+        /// Initiate displayable text with titles
+        ///
+        /// \see sf::Text
+        /// \see sf::Font
+        ///
+        ////////////////////////////////////////////////////////////
+        static void printTitles(sf::Text* t, int n, sf::Font& font, int sc_width, int sc_height);
 
     protected:
 

@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<File name="include\TouchableObject.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="89" topLine="0" />
@@ -98,6 +99,11 @@
 		<Cursor>
 			<Cursor1 position="175" topLine="0" />
 >>>>>>> origin/master
+=======
+	<File name="include\MenuController.h" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="223" topLine="0" />
+>>>>>>> Gaetan_branch
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
