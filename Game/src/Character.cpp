@@ -1,17 +1,13 @@
 #include "Character.h"
 #include <iostream>
 
-<<<<<<< HEAD
 Character::Character()
 {
     //default constructor
 }
 
-
-Character::Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp):TouchableObject(id, box)
-=======
 Character::Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp, Attack& a):TouchableObject(id, box)
->>>>>>> Gaetan_branch
+
 {
     this->speed=speed;
     this->hp=hp;

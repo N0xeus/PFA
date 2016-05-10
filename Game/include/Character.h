@@ -16,10 +16,8 @@
 class Character : public TouchableObject
 {
     public:
-<<<<<<< HEAD
         Character();
         Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp);
-=======
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
@@ -35,7 +33,6 @@ class Character : public TouchableObject
         /// \brief Destructor
         ///
         ////////////////////////////////////////////////////////////
->>>>>>> Gaetan_branch
         virtual ~Character();
 
         ////////////////////////////////////////////////////////////

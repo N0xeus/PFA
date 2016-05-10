@@ -13,9 +13,8 @@
 class TouchableObject
 {
     public:
-<<<<<<< HEAD
+
         TouchableObject();
-=======
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
@@ -26,7 +25,7 @@ class TouchableObject
         ///
         ///
         ////////////////////////////////////////////////////////////
->>>>>>> Gaetan_branch
+
         TouchableObject(int id, const sf::IntRect box);
 
         ////////////////////////////////////////////////////////////
