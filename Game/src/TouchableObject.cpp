@@ -6,7 +6,7 @@ TouchableObject::TouchableObject()
 
 }
 
-TouchableObject::TouchableObject(int id, const sf::IntRect box)
+TouchableObject::TouchableObject(int id, const sf::FloatRect box)
 {
     this->id=id;
     this->hitbox=box;

@@ -1,6 +1,6 @@
 #include "Obstacle.h"
 
-Obstacle::Obstacle(int id, const sf::IntRect box, int resistance): TouchableObject(id, box)
+Obstacle::Obstacle(int id, const sf::FloatRect box, int resistance): TouchableObject(id, box)
 {
     res=resistance;
     resMax=resistance;

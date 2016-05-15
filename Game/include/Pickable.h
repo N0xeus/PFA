@@ -20,7 +20,7 @@ class Pickable : public TouchableObject
         /// Create a specific \link TouchableObject
         ///
         ////////////////////////////////////////////////////////////
-        Pickable(int id, const sf::IntRect box);
+        Pickable(int id, const sf::FloatRect box);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor

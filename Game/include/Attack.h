@@ -23,7 +23,7 @@ class Attack : public TouchableObject
         /// Create a \link TouchableObject with damage and attack speed
         ///
         ////////////////////////////////////////////////////////////
-        Attack(int id, const sf::IntRect box, int damage, float atqSpeed);
+        Attack(int id, const sf::FloatRect box, int damage, float atqSpeed);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor

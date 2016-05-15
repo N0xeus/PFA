@@ -19,7 +19,7 @@ class Bonus : public Pickable
         /// Create an \link Pickable which is a bonus
         ///
         ////////////////////////////////////////////////////////////
-        Bonus(int id, const sf::IntRect box);
+        Bonus(int id, const sf::FloatRect box);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor

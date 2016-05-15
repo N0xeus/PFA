@@ -1,6 +1,6 @@
 #include "Life.h"
 
-Life::Life(int id, const sf::IntRect box):Pickable(id, box)
+Life::Life(int id, const sf::FloatRect box):Pickable(id, box)
 {
     //ctor
 }

@@ -1,6 +1,6 @@
 #include "Attack.h"
 
-Attack::Attack(int id, const sf::IntRect box, int damage, float atqSpeed):TouchableObject(id, box)
+Attack::Attack(int id, const sf::FloatRect box, int damage, float atqSpeed):TouchableObject(id, box)
 {
     power=damage;
     speed=sf::seconds(atqSpeed);

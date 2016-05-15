@@ -27,11 +27,11 @@ Pickable* PickableFactory::createPickable(sf::Vector2i screen, sf::Vector2i pos,
         if(r1==0){
             r1=rand()%screen.x/2;
             r2=rand()%screen.y/2;
-            p = new Bonus(lastId+1, sf::IntRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
+            p = new Bonus(lastId+1, sf::FloatRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
         }else{
             r1=rand()%screen.x/2;
             r2=rand()%screen.y/2;
-            p = new Life(lastId+1, sf::IntRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
+            p = new Life(lastId+1, sf::FloatRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
         }
         lastId++;
         lastTime=t;

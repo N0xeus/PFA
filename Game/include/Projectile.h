@@ -21,7 +21,7 @@ class Projectile : public Attack
         /// Create an \link Attack with movement speed
         ///
         ////////////////////////////////////////////////////////////
-        Projectile(int id, const sf::IntRect box, int damage, float atqSpeed, sf::Vector2f mvtSpeed);
+        Projectile(int id, const sf::FloatRect box, int damage, float atqSpeed, sf::Vector2f mvtSpeed);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
