@@ -25,8 +25,6 @@ class Hero : public Character
     private:
         int lives;
         int state;
-        float posX;
-        float posY;
 };
 
 #endif // HERO_H
