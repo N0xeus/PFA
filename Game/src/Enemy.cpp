@@ -17,20 +17,28 @@ float Enemy::distance(int x1, int y1, int x2, int y2)
     return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 }
 
-bool Enemy::canAttack(int timeSinceLastAttack)
+bool Enemy::canAttack(sf::Time timeSinceLastAttack)
 {
-    if(this->atq.getSpeed()>timeSinceLastAttack)
-        return false;
-    return true;
+    return this->atq->isReady(timeSinceLastAttack);
 }
 
 bool Enemy::canSeePlayer(Hero hero)
 {
-    if(distance(hero.getPosX(),hero.getPosY(), this->getHitbox().left+this->getHitbox().width/2, this->getHitbox().top+this->getHitbox().height/2))
+    if(distance(hero.GetposX(),hero.GetposY(), this->getHitbox().left+this->getHitbox().width/2, this->getHitbox().top+this->getHitbox().height/2) < this->Getsight())
+        return true;
+    return false;
 }
 
 
-virtual int Enemy::attack(TouchableObject& target);
+//int Enemy::attack(TouchableObject& target)
+//{
+//    switch(this->Gettype())
+//    {
+//        case 1:
+//            if(distance(hero.GetposX(),hero.GetposY(), this->getHitbox().left+this->getHitbox().width/2, this->getHitbox().top+this->getHitbox().height/2) < this->Getrange())
+//                target->
+//    }
+//}
 
 Enemy::~Enemy()
 {

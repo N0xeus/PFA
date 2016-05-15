@@ -53,7 +53,7 @@ class PickableFactory
         /// Return a Pickable instance
         ///
         ////////////////////////////////////////////////////////////
-        Pickable* createPickable(sf::Vector2i screen, sf::Vector2i pos, sf::Time t);
+        Pickable* createPickable(sf::Vector2f screen, sf::Vector2f pos, sf::Time t);
 
     protected:
 

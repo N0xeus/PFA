@@ -16,7 +16,7 @@ PickableFactory::~PickableFactory()
     //dtor
 }
 
-Pickable* PickableFactory::createPickable(sf::Vector2i screen, sf::Vector2i pos, sf::Time t){
+Pickable* PickableFactory::createPickable(sf::Vector2f screen, sf::Vector2f pos, sf::Time t){
     Pickable* p=NULL;
     int r1;
     int r2;
@@ -25,13 +25,13 @@ Pickable* PickableFactory::createPickable(sf::Vector2i screen, sf::Vector2i pos,
         std::srand(std::time(0));
         r1=std::rand()%2;
         if(r1==0){
-            r1=rand()%screen.x/2;
-            r2=rand()%screen.y/2;
-            p = new Bonus(lastId+1, sf::FloatRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
+            r1=rand()%(int)screen.x/2;
+            r2=rand()%(int)screen.y/2;
+            p = new Bonus(lastId+1, sf::FloatRect(pos+sf::Vector2f(r1, r2), sf::Vector2f(100,100)));
         }else{
-            r1=rand()%screen.x/2;
-            r2=rand()%screen.y/2;
-            p = new Life(lastId+1, sf::FloatRect(pos+sf::Vector2i(r1, r2), sf::Vector2i(100,100)));
+            r1=rand()%(int)screen.x/2;
+            r2=rand()%(int)screen.y/2;
+            p = new Life(lastId+1, sf::FloatRect(pos+sf::Vector2f(r1, r2), sf::Vector2f(100,100)));
         }
         lastId++;
         lastTime=t;
