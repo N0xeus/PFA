@@ -6,12 +6,13 @@ Character::Character()
     //default constructor
 }
 
-Character::Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp, Attack& a):TouchableObject(id, box)
+Character::Character(int id, const sf::FloatRect box, const sf::Vector2f speed, int hp, Attack& a):TouchableObject(id, box)
 
 {
     this->speed=speed;
     this->hp=hp;
     hpMax=hp;
+    vulnerable=true;
     *atq=a;
 }
 

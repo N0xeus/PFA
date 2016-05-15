@@ -17,7 +17,7 @@ class Character : public TouchableObject
 {
     public:
         Character();
-        Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp);
+
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
@@ -27,7 +27,7 @@ class Character : public TouchableObject
         /// Create an \link TouchableObject with movement speed and hearth points
         ///
         ////////////////////////////////////////////////////////////
-        Character(int id, const sf::IntRect box, const sf::Vector2f speed, int hp, Attack& a);
+        Character(int id, const sf::FloatRect box, const sf::Vector2f speed, int hp, Attack& a);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
