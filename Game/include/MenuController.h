@@ -20,9 +20,10 @@ class MenuController
         ////////////////////////////////////////////////////////////
         enum id{                        /// Screen identifiers
             MAIN_ID = 0,
-            OP_ID = 1,
-            SC_ID = 2,
-            CR_ID = 3,
+            PLAY_ID = 1,
+            OP_ID = 2,
+            SC_ID = 3,
+            CR_ID = 4,
         };
 
         enum limit{                     /// Limit numbers of possibilities

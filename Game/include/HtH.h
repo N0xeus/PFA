@@ -19,7 +19,7 @@ class HtH : public Attack
         /// Create an \link Attack
         ///
         ////////////////////////////////////////////////////////////
-        HtH(int id, const sf::IntRect box, int damage, float atqSpeed);
+        HtH(int id, const sf::FloatRect box, int damage, float atqSpeed);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor

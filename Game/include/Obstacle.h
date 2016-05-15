@@ -13,6 +13,8 @@
 class Obstacle : public TouchableObject
 {
     public:
+        Obstacle();
+
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
@@ -23,7 +25,7 @@ class Obstacle : public TouchableObject
         /// \see Attack
         ///
         ////////////////////////////////////////////////////////////
-        Obstacle(int id, const sf::IntRect box, int resistance);
+        Obstacle(int id, const sf::FloatRect box, int resistance);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor

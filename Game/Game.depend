@@ -381,9 +381,33 @@
 	<string>
 	<vector>
 
-1460917743 source:c:\users\léo\documents\github\pfa\game\main.cpp
+1462641708 D
+
+1462726664 source:c:\users\léo\documents\github\pfa\game\main.cpp
 	<iostream>
+	<cmath>
+	<map>
+	<list>
+	<utility>
+	<string>
+	<sstream>
+	"Node.h"
+	"Point.h"
+	<fstream>
 	<SFML/Graphics.hpp>
+	"Character.h"
+	"TouchableObject.h"
+	<iostream>
+	<fstream>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"Character.h"
+	"MenuController.h"
+
+1462725502 Object.h"
+
+1462727291 gin/master
+	"Point.h"
 
 1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -763,24 +787,30 @@
 	<string>
 	<vector>
 
-1460937544 source:c:\users\léo\documents\github\pfa\game\src\touchableobject.cpp
+1462641708 source:c:\users\léo\documents\github\pfa\game\src\touchableobject.cpp
+	<iostream>
 	"TouchableObject.h"
 
-1460937543 c:\users\léo\documents\github\pfa\game\include\touchableobject.h
+1462641708 c:\users\léo\documents\github\pfa\game\include\touchableobject.h
+	<SFML/Graphics/Rect.hpp>
 
-1460938259 source:c:\users\léo\documents\github\pfa\game\src\character.cpp
+1462641708 source:c:\users\léo\documents\github\pfa\game\src\character.cpp
 	"Character.h"
+	<iostream>
 
-1460938196 c:\users\léo\documents\github\pfa\game\include\character.h
+1462641708 c:\users\léo\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
 
-1462573633 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1463333961 source:e:\gaetan\documents\github\pfa\game\main.cpp
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Character.h"
 	"MenuController.h"
+	"GameController.h"
 
 1461830861 e:\gaetan\documents\github\pfa\game\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1160,24 +1190,24 @@
 	<string>
 	<vector>
 
-1462573517 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
+1463323325 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
 	"Character.h"
 	<iostream>
 
-1462573279 e:\gaetan\documents\github\pfa\game\include\character.h
+1463321780 e:\gaetan\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 	<Attack.h>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1462619322 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
+1463321970 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
 	<SFML/Graphics/Rect.hpp>
 
-1461843990 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
+1463321547 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
 	<iostream>
 	"TouchableObject.h"
 
-1462572201 e:\gaetan\documents\github\pfa\game\include\menucontroller.h
+1463316142 e:\gaetan\documents\github\pfa\game\include\menucontroller.h
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/Font.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
@@ -1288,52 +1318,216 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1462557783 source:e:\gaetan\documents\github\pfa\game\src\attack.cpp
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1436037625 c:\users\léo\documents\github\pfa\game\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1436037625 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundfilefactory.inl
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1429784053 c:\users\léo\documents\github\pfa\game\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1462641708 c:\users\léo\documents\github\pfa\game\include\menucontroller.h
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1462641708 source:c:\users\léo\documents\github\pfa\game\src\menucontroller.cpp
+	"MenuController.h"
+
+1462727291 c:\users\léo\documents\github\pfa\game\include\node.h
+	"Point.h"
+	"Point.h"
+
+1462727268 c:\users\léo\documents\github\pfa\game\include\point.h
+
+1462727266 source:c:\users\léo\documents\github\pfa\game\src\node.cpp
+	"Node.h"
+	"Node.h"
+
+1462727291 source:c:\users\léo\documents\github\pfa\game\src\point.cpp
+
+1462727291 
+
+1463321462 source:e:\gaetan\documents\github\pfa\game\src\attack.cpp
 	"Attack.h"
 
-1462573318 e:\gaetan\documents\github\pfa\game\include\attack.h
+1463321711 e:\gaetan\documents\github\pfa\game\include\attack.h
 	<TouchableObject.h>
 	<SFML/System/Time.hpp>
 
-1462550323 source:e:\gaetan\documents\github\pfa\game\src\obstacle.cpp
+1463325152 source:e:\gaetan\documents\github\pfa\game\src\obstacle.cpp
 	"Obstacle.h"
 
-1462613643 e:\gaetan\documents\github\pfa\game\include\obstacle.h
+1463321862 e:\gaetan\documents\github\pfa\game\include\obstacle.h
 	<TouchableObject.h>
 
-1462567508 source:e:\gaetan\documents\github\pfa\game\src\bonus.cpp
+1463321468 source:e:\gaetan\documents\github\pfa\game\src\bonus.cpp
 	"Bonus.h"
 
-1462567653 e:\gaetan\documents\github\pfa\game\include\bonus.h
+1463321757 e:\gaetan\documents\github\pfa\game\include\bonus.h
 	<Pickable.h>
 
-1462614210 e:\gaetan\documents\github\pfa\game\include\pickable.h
+1463321883 e:\gaetan\documents\github\pfa\game\include\pickable.h
 	<TouchableObject.h>
 	<SFML/System/Time.hpp>
 
-1462573556 source:e:\gaetan\documents\github\pfa\game\src\life.cpp
+1463321513 source:e:\gaetan\documents\github\pfa\game\src\life.cpp
 	"Life.h"
 
-1462571091 e:\gaetan\documents\github\pfa\game\include\life.h
+1463321849 e:\gaetan\documents\github\pfa\game\include\life.h
 	<Pickable.h>
 
-1462555941 source:e:\gaetan\documents\github\pfa\game\src\pickable.cpp
+1463321532 source:e:\gaetan\documents\github\pfa\game\src\pickable.cpp
 	"Pickable.h"
 
-1462573525 source:e:\gaetan\documents\github\pfa\game\src\hth.cpp
+1463321504 source:e:\gaetan\documents\github\pfa\game\src\hth.cpp
 	"HtH.h"
 
-1462570898 e:\gaetan\documents\github\pfa\game\include\hth.h
+1463321839 e:\gaetan\documents\github\pfa\game\include\hth.h
 	<Attack.h>
 
-1462569630 source:e:\gaetan\documents\github\pfa\game\src\pickablefactory.cpp
+1463322604 source:e:\gaetan\documents\github\pfa\game\src\pickablefactory.cpp
 	"PickableFactory.h"
+	"Bonus.h"
+	"Life.h"
+	<iostream>
+	<ctime>
 
-1462569630 e:\gaetan\documents\github\pfa\game\include\pickablefactory.h
+1463322545 e:\gaetan\documents\github\pfa\game\include\pickablefactory.h
+	<Pickable.h>
+	<SFML/System/Time.hpp>
+	<SFML/System/Vector2.hpp>
 
-1462563124 source:e:\gaetan\documents\github\pfa\game\src\projectile.cpp
+1463321927 source:e:\gaetan\documents\github\pfa\game\src\projectile.cpp
 	"Projectile.h"
 
-1462563013 e:\gaetan\documents\github\pfa\game\include\projectile.h
+1463322652 e:\gaetan\documents\github\pfa\game\include\projectile.h
 	<Attack.h>
+
+1462563013 tan_branch
+
+1462811713 source:e:\gaetan\documents\github\pfa\game\src\boss.cpp
+	"Boss.h"
+
+1462811713 e:\gaetan\documents\github\pfa\game\include\boss.h
+	<Enemy.h>
+
+1462811713 e:\gaetan\documents\github\pfa\game\include\enemy.h
+	<Character.h>
+
+1462811713 source:e:\gaetan\documents\github\pfa\game\src\enemy.cpp
+	"Enemy.h"
+
+1462811713 source:e:\gaetan\documents\github\pfa\game\src\node.cpp
+	"Node.h"
+
+1462811713 e:\gaetan\documents\github\pfa\game\include\node.h
+	"Point.h"
+
+1462811713 e:\gaetan\documents\github\pfa\game\include\point.h
+
+1462811713 source:e:\gaetan\documents\github\pfa\game\src\point.cpp
+	"Point.h"
+
+1463335697 source:e:\gaetan\documents\github\pfa\game\src\gamecontroller.cpp
+	"GameController.h"
+
+1463335651 e:\gaetan\documents\github\pfa\game\include\gamecontroller.h
+	<SFML/Graphics.hpp>
+	"Obstacle.h"
 

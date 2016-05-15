@@ -19,7 +19,7 @@ class Life : public Pickable
         /// Create an \link Pickable which is a life for the character
         ///
         ////////////////////////////////////////////////////////////
-        Life(int id, const sf::IntRect box);
+        Life(int id, const sf::FloatRect box);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor

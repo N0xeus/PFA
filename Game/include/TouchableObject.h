@@ -13,6 +13,8 @@
 class TouchableObject
 {
     public:
+
+        TouchableObject();
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
         ///
@@ -23,7 +25,8 @@ class TouchableObject
         ///
         ///
         ////////////////////////////////////////////////////////////
-        TouchableObject(int id, const sf::IntRect box);
+
+        TouchableObject(int id, const sf::FloatRect box);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
@@ -43,7 +46,7 @@ class TouchableObject
         ///
         /// \return Hitbox
         ////////////////////////////////////////////////////////////
-        sf::IntRect getHitbox() { return hitbox; }
+        sf::FloatRect getHitbox() { return hitbox; }
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the collision
@@ -92,7 +95,7 @@ class TouchableObject
         // Member data
         ////////////////////////////////////////////////////////////
         int id;                 /// Identifier
-        sf::IntRect hitbox;     /// Rectangular hitbox
+        sf::FloatRect hitbox;     /// Rectangular hitbox
 
     private:
 

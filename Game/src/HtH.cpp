@@ -1,6 +1,6 @@
 #include "HtH.h"
 
-HtH::HtH(int id, const sf::IntRect box, int damage, float atqSpeed):Attack(id, box, damage, atqSpeed)
+HtH::HtH(int id, const sf::FloatRect box, int damage, float atqSpeed):Attack(id, box, damage, atqSpeed)
 {
     //ctor
 }
