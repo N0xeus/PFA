@@ -803,7 +803,7 @@
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1463434128 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1463437358 source:e:\gaetan\documents\github\pfa\game\main.cpp
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -1524,11 +1524,11 @@
 1462811713 source:e:\gaetan\documents\github\pfa\game\src\point.cpp
 	"Point.h"
 
-1463435244 source:e:\gaetan\documents\github\pfa\game\src\gamecontroller.cpp
+1463437376 source:e:\gaetan\documents\github\pfa\game\src\gamecontroller.cpp
 	"GameController.h"
 	"HtH.h"
 
-1463432244 e:\gaetan\documents\github\pfa\game\include\gamecontroller.h
+1463437190 e:\gaetan\documents\github\pfa\game\include\gamecontroller.h
 	<SFML/Graphics.hpp>
 	"Obstacle.h"
 	"Hero.h"

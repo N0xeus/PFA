@@ -21,7 +21,7 @@ class GameController
         void moveHero(sf::Vector2f v);
         void gravity(float val);
         void jumpHero(float val);
-        void update();
+        void update(float time);
     protected:
 
     private:

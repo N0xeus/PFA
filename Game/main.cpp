@@ -11,7 +11,8 @@ using namespace std;
 //Width and height
 #define SCREEN_W 800
 #define SCREEN_H 600
-#define JUMP -15
+#define JUMP -500
+#define MOV 200
 
 //Selected options and current menu
 int selected=0;
@@ -88,7 +89,9 @@ int main(void){
                                                         "BACK"
                                                     };
 
+    sf::Clock c;
     while(main_window.isOpen()){
+        c.restart();
         switch(current_menu){
             case MenuController::MAIN_ID :
                 limit=MenuController::MAIN_LIMIT;
@@ -374,18 +377,19 @@ int main(void){
                 }
 
                 //Key pressed
+                sf::Time t=c.getElapsedTime();
                 if(event.type==sf::Event::KeyPressed){
                     switch(event.key.code){
                         case sf::Keyboard::Left:
-                            gc.moveHero(sf::Vector2f(-5,0));
+                            gc.moveHero(sf::Vector2f(-MOV*t.asSeconds(),0));
                         break;
 
                         case sf::Keyboard::Right:
-                            gc.moveHero(sf::Vector2f(5,0));
+                            gc.moveHero(sf::Vector2f(MOV*t.asSeconds(),0));
                         break;
 
                         case sf::Keyboard::Up:
-                            gc.jumpHero(JUMP);
+                            gc.jumpHero(JUMP*t.asSeconds());
                         break;
 
                         default:
@@ -408,7 +412,7 @@ int main(void){
                         break;
                     }
                 }
-                gc.update();
+                gc.update(t.asSeconds());
                 game_window.draw(bg);
                 gc.draw();
                 game_window.display();

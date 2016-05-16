@@ -1,7 +1,7 @@
 #include "GameController.h"
 #include "HtH.h"
 
-#define GRAVITY 1
+#define GRAVITY 20
 #define SCREEN_W 800
 #define SCREEN_H 600
 
@@ -40,7 +40,7 @@ void GameController::collisionHero(){
             break;
         }
     }
-    //b=b&&hero.getY()+hero.getHitbox().height<obstacleTab[j].getY();
+    //b=b&&obstacleTab[j].getY()-hero.getY()<hero.getHitbox().height;
     if(b && hero.getSpeed().y>0){
         hero.setSpeedY(0);
         hero.setState(Hero::IDLE);
@@ -83,8 +83,8 @@ void GameController::jumpHero(float val){
     }
 }
 
-void GameController::update(){
-    gravity(GRAVITY);
+void GameController::update(float time){
+    gravity(GRAVITY*time);
     hero.move();
     collisionHero();
     changeView();
