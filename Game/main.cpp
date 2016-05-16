@@ -11,6 +11,7 @@ using namespace std;
 //Width and height
 #define SCREEN_W 800
 #define SCREEN_H 600
+#define JUMP -15
 
 //Selected options and current menu
 int selected=0;
@@ -54,10 +55,9 @@ int main(void){
 
     //Music by Toby Fox
     sf::Music music;
-    sf::Music music2;
     music.openFromFile("audio/menu.wav");
     music.setLoop(true);
-    music.setVolume(50.);
+    music.setVolume(30.);
     music.play();
 
     //Validation song
@@ -374,24 +374,40 @@ int main(void){
                 }
 
                 //Key pressed
-                    if(event.type==sf::Event::KeyPressed){
-                        switch(event.key.code){
-                            case sf::Keyboard::Left:
-                                gc.moveHero(sf::Vector2f(-10,0));
-                            break;
+                if(event.type==sf::Event::KeyPressed){
+                    switch(event.key.code){
+                        case sf::Keyboard::Left:
+                            gc.moveHero(sf::Vector2f(-5,0));
+                        break;
 
-                            case sf::Keyboard::Right:
-                                gc.moveHero(sf::Vector2f(10,0));
-                            break;
+                        case sf::Keyboard::Right:
+                            gc.moveHero(sf::Vector2f(5,0));
+                        break;
 
-                            case sf::Keyboard::Up:
-                                gc.moveHero(sf::Vector2f(0,-20));
-                            break;
+                        case sf::Keyboard::Up:
+                            gc.jumpHero(JUMP);
+                        break;
 
-                            default:
-                            break;
-                        }
+                        default:
+                        break;
                     }
+                }
+
+                //Key released
+                if(event.type==sf::Event::KeyReleased){
+                    switch(event.key.code){
+                        case sf::Keyboard::Left:
+                            gc.moveHero(sf::Vector2f(0,0));
+                        break;
+
+                        case sf::Keyboard::Right:
+                            gc.moveHero(sf::Vector2f(0,0));
+                        break;
+
+                        default:
+                        break;
+                    }
+                }
                 gc.update();
                 game_window.draw(bg);
                 gc.draw();

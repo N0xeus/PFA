@@ -1,9 +1,14 @@
 #include "GameController.h"
 #include "HtH.h"
 
+#define GRAVITY 1
+#define SCREEN_W 800
+#define SCREEN_H 600
+
 GameController::GameController(sf::RenderWindow &window)
 {
     w=&window;
+    view.reset(sf::FloatRect(0,0,SCREEN_W,SCREEN_H));
     HtH a(300,sf::FloatRect(10,10,0,FLOOR_Y),1,1);
     hero=Hero(0,sf::FloatRect(0,FLOOR_Y-150,100,100),sf::Vector2f(0,0),100, a, 3,0);
 
@@ -29,17 +34,26 @@ void GameController::collisionHero(){
     bool b=false;
     int j;
     for(int i; i<NB_PLAT; i++){
-        b=hero.intersects(obstacleTab[i]);
+        b=obstacleTab[i].intersects(hero);
         if(b){
             j=i;
             break;
         }
     }
-
-    if(b){
+    //b=b&&hero.getY()+hero.getHitbox().height<obstacleTab[j].getY();
+    if(b && hero.getSpeed().y>0){
         hero.setSpeedY(0);
+        hero.setState(Hero::IDLE);
         hero.setPosition(hero.getX(),obstacleTab[j].getY()-hero.getHitbox().height);
-    }
+    }else hero.setState(Hero::JUMP);
+
+    if(hero.getX()<0) hero.setPosition(0,hero.getY());
+    if(hero.getX()>FLOOR_LENGTH-hero.getHitbox().width) hero.setPosition(FLOOR_LENGTH-hero.getHitbox().width,hero.getY());
+}
+
+void GameController::changeView(){
+    if(hero.getX()>SCREEN_W/2 && hero.getX()<FLOOR_LENGTH-SCREEN_W/2)view.setCenter(hero.getX(), SCREEN_H/2);
+    w->setView(view);
 }
 
 void GameController::draw(){
@@ -51,18 +65,29 @@ void GameController::draw(){
 }
 
 void GameController::moveHero(sf::Vector2f v){
-    hero.setSpeedX(v.x);
-    hero.setSpeedY(v.y);
-    hero.move();
+
+    if(hero.getSpeed().y<=0){
+        hero.setSpeedX(v.x);
+        hero.setSpeedY(v.y);
+    }
 }
 
-void GameController::gravity(){
-    moveHero(sf::Vector2f(0,10));
+void GameController::gravity(float val){
+    hero.setSpeedY(hero.getSpeed().y+val);
+}
+
+void GameController::jumpHero(float val){
+    if(hero.getState()!=Hero::JUMP){
+        hero.setSpeedY(val);
+        hero.setState(Hero::JUMP);
+    }
 }
 
 void GameController::update(){
-    gravity();
+    gravity(GRAVITY);
+    hero.move();
     collisionHero();
+    changeView();
 
     for(int i=0; i<NB_PLAT; i++){
         sf::FloatRect h=obstacleTab[i].getHitbox();

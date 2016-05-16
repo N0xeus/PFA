@@ -13,8 +13,13 @@ class Hero : public Character
 
         int Getlives() { return lives; }
         void Setlives(int val) { lives = val; }
-        int Getstate() { return state; }
-        void Setstate(int val) { state = val; }
+        int getState() { return state; }
+        void setState(int val) { state = val; }
+
+        enum s{
+            IDLE=0,
+            JUMP=1,
+        };
 
     protected:
 

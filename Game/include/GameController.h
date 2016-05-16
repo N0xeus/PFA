@@ -16,18 +16,21 @@ class GameController
         virtual ~GameController();
 
         void collisionHero();
+        void changeView();
         void draw();
         void moveHero(sf::Vector2f v);
-        void gravity();
+        void gravity(float val);
+        void jumpHero(float val);
         void update();
     protected:
 
     private:
         sf::RenderWindow* w;
 
-        Character hero;
+        Hero hero;
         Obstacle obstacleTab[NB_PLAT];
 
+        sf::View view;
         sf::RectangleShape hero_display;
         sf::RectangleShape obstacle_display[NB_PLAT];
 };
