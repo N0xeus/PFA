@@ -803,7 +803,7 @@
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1463333961 source:e:\gaetan\documents\github\pfa\game\main.cpp
+1463349281 source:e:\gaetan\documents\github\pfa\game\main.cpp
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
@@ -1190,20 +1190,20 @@
 	<string>
 	<vector>
 
-1463323325 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
+1463346120 source:e:\gaetan\documents\github\pfa\game\src\character.cpp
 	"Character.h"
 	<iostream>
 
-1463321780 e:\gaetan\documents\github\pfa\game\include\character.h
+1463350455 e:\gaetan\documents\github\pfa\game\include\character.h
 	<TouchableObject.h>
 	<Attack.h>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1463321970 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
+1463350599 e:\gaetan\documents\github\pfa\game\include\touchableobject.h
 	<SFML/Graphics/Rect.hpp>
 
-1463321547 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
+1463350742 source:e:\gaetan\documents\github\pfa\game\src\touchableobject.cpp
 	<iostream>
 	"TouchableObject.h"
 
@@ -1524,10 +1524,18 @@
 1462811713 source:e:\gaetan\documents\github\pfa\game\src\point.cpp
 	"Point.h"
 
-1463335697 source:e:\gaetan\documents\github\pfa\game\src\gamecontroller.cpp
+1463346844 source:e:\gaetan\documents\github\pfa\game\src\gamecontroller.cpp
 	"GameController.h"
+	"HtH.h"
 
-1463335651 e:\gaetan\documents\github\pfa\game\include\gamecontroller.h
+1463349569 e:\gaetan\documents\github\pfa\game\include\gamecontroller.h
 	<SFML/Graphics.hpp>
 	"Obstacle.h"
+	"Hero.h"
+
+1463339215 source:e:\gaetan\documents\github\pfa\game\src\hero.cpp
+	"Hero.h"
+
+1463337617 e:\gaetan\documents\github\pfa\game\include\hero.h
+	<Character.h>
 

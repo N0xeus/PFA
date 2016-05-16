@@ -17,6 +17,11 @@ TouchableObject::~TouchableObject()
     //dtor
 }
 
+void TouchableObject::setPosition(float x, float y){
+    hitbox.left=x;
+    hitbox.top=y;
+}
+
 bool TouchableObject::intersects(TouchableObject& to){
     return hitbox.intersects(to.getHitbox());
 }

@@ -371,17 +371,28 @@ int main(void){
                 while(game_window.pollEvent(event)){
                     //Window closed
                     if(event.type==sf::Event::Closed) game_window.close();
+                }
 
-                    //Key pressed
+                //Key pressed
                     if(event.type==sf::Event::KeyPressed){
                         switch(event.key.code){
+                            case sf::Keyboard::Left:
+                                gc.moveHero(sf::Vector2f(-10,0));
+                            break;
+
+                            case sf::Keyboard::Right:
+                                gc.moveHero(sf::Vector2f(10,0));
+                            break;
+
+                            case sf::Keyboard::Up:
+                                gc.moveHero(sf::Vector2f(0,-20));
+                            break;
 
                             default:
                             break;
                         }
                     }
-                }
-
+                gc.update();
                 game_window.draw(bg);
                 gc.draw();
                 game_window.display();
