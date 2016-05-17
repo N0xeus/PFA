@@ -10,7 +10,7 @@ GameController::GameController(sf::RenderWindow &window)
     w=&window;
     view.reset(sf::FloatRect(0,0,SCREEN_W,SCREEN_H));
     HtH a(300,sf::FloatRect(10,10,0,FLOOR_Y),1,1);
-    hero=Hero(0,sf::FloatRect(0,FLOOR_Y-150,100,100),sf::Vector2f(0,0),100, a, 3,0);
+    hero=Hero(0,sf::FloatRect(0,FLOOR_Y-200,100,100),sf::Vector2f(0,0),100, a, 3,0);
 
     int obsID=200;
     int i=0;
@@ -31,20 +31,25 @@ GameController::GameController(sf::RenderWindow &window)
 }
 
 void GameController::collisionHero(){
+    bool a=false;
     bool b=false;
     int j;
-    for(int i; i<NB_PLAT; i++){
+    for(int i=0; i<NB_PLAT; i++){
+        a=hero.getY()+hero.getHitbox().height;
         b=obstacleTab[i].intersects(hero);
         if(b){
             j=i;
             break;
         }
     }
-    //b=b&&obstacleTab[j].getY()-hero.getY()<hero.getHitbox().height;
+    if(b) printf("OK b ");
+    if(a) printf("OK a ");
+    //b=b&&(!hero.getY()>obstacleTab[j].getY());
     if(b && hero.getSpeed().y>0){
         hero.setSpeedY(0);
         hero.setState(Hero::IDLE);
         hero.setPosition(hero.getX(),obstacleTab[j].getY()-hero.getHitbox().height);
+        printf("OK%d\n", j);
     }else hero.setState(Hero::JUMP);
 
     if(hero.getX()<0) hero.setPosition(0,hero.getY());
@@ -65,11 +70,7 @@ void GameController::draw(){
 }
 
 void GameController::moveHero(sf::Vector2f v){
-
-    if(hero.getSpeed().y<=0){
-        hero.setSpeedX(v.x);
-        hero.setSpeedY(v.y);
-    }
+    hero.setSpeedX(v.x);
 }
 
 void GameController::gravity(float val){
@@ -80,6 +81,7 @@ void GameController::jumpHero(float val){
     if(hero.getState()!=Hero::JUMP){
         hero.setSpeedY(val);
         hero.setState(Hero::JUMP);
+        printf("JUMP\n");
     }
 }
 
