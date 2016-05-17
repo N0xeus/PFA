@@ -35,7 +35,8 @@ void GameController::collisionHero(){
     bool b=false;
     int j;
     for(int i=0; i<NB_PLAT; i++){
-        a=hero.getY()+hero.getHitbox().height;
+        a=hero.getY()+hero.getHitbox().height>=obstacleTab[i].getY();
+        a=a&&hero.getY()+hero.getHitbox().height<=obstacleTab[i].getY()+obstacleTab[i].getHitbox().height;
         b=obstacleTab[i].intersects(hero);
         if(b){
             j=i;
@@ -45,7 +46,7 @@ void GameController::collisionHero(){
     if(b) printf("OK b ");
     if(a) printf("OK a ");
     //b=b&&(!hero.getY()>obstacleTab[j].getY());
-    if(b && hero.getSpeed().y>0){
+    if(a && b && hero.getSpeed().y>0){
         hero.setSpeedY(0);
         hero.setState(Hero::IDLE);
         hero.setPosition(hero.getX(),obstacleTab[j].getY()-hero.getHitbox().height);
