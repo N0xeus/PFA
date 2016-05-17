@@ -36,7 +36,7 @@ int main(void){
 
     //800x600 window entitled LGGP Project with a fix size
     //Screen frame rate limited at 60Hz
-    sf::RenderWindow game_window(sf::VideoMode(SCREEN_W,SCREEN_H), "LGGP Project (IN GAME)", sf::Style::None);
+    sf::RenderWindow game_window(sf::VideoMode(SCREEN_W,SCREEN_H), "LGGP Project (IN GAME)", sf::Style::Close);
     game_window.setFramerateLimit(60);
     game_window.setVisible(false);
     game_window.setActive(false);
@@ -374,6 +374,25 @@ int main(void){
                 while(game_window.pollEvent(event)){
                     //Window closed
                     if(event.type==sf::Event::Closed) game_window.close();
+
+
+
+                    if(event.type==sf::Event::KeyPressed && event.key.code==sf::Keyboard::Escape){
+                        bgt.loadFromFile("img/background.jpg");
+                        music.stop();
+                        music.openFromFile("audio/menu.wav");
+                        music.play();
+                        current_menu=MenuController::MAIN_ID;
+                        selected=0;
+                        sound.play();
+
+                        main_window.setVisible(true);
+                        main_window.setActive(true);
+                        game_window.setVisible(false);
+                        game_window.setActive(false);
+
+                        gc=GameController(game_window);
+                    }
                 }
 
                 //Key pressed
