@@ -5,6 +5,7 @@
 #include <Hero.h>
 #include <cmath>
 #include <SFML/System/Time.hpp>
+#include <iostream>
 
 
 class Enemy : public Character
@@ -12,6 +13,7 @@ class Enemy : public Character
     public:
         Enemy();
         Enemy(int id, const sf::FloatRect box, const sf::Vector2f speed, int hp, Attack& a, bool vulnerable, int type, int sight, int range);
+        Enemy(Enemy& e);
         virtual ~Enemy();
 
         int Gettype() { return type; }

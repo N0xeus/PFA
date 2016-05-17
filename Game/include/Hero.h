@@ -15,10 +15,6 @@ class Hero : public Character
         void Setlives(int val) { lives = val; }
         int Getstate() { return state; }
         void Setstate(int val) { state = val; }
-        float GetposX() { return posX; }
-        void SetposX(float val) { posX = val; }
-        float GetposY() { return posY; }
-        void SetposY(float val) { posY = val; }
 
     protected:
 

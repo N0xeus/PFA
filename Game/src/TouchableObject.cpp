@@ -10,6 +10,7 @@ TouchableObject::TouchableObject(int id, const sf::FloatRect box)
 {
     this->id=id;
     this->hitbox=box;
+    this->pos = Point(box.left+box.width/2,box.top+box.height/2);
 }
 
 TouchableObject::~TouchableObject()

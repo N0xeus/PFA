@@ -11,7 +11,8 @@ Character::Character(int id, const sf::FloatRect box, const sf::Vector2f speed, 
     this->speed=speed;
     this->hp=hp;
     hpMax=hp;
-    *atq=a;
+//    if(a.isHtH()) *atq = new HtH(a.getId(),a.getHitbox(),a.getPower(), a.getSpeed());
+//    if(a.isProjectile()) *atq = new Projectile(a.getId(),a.getHitbox(),a.getPower(), a.getSpeed(), a.getMvtSpeed());
     this->vulnerable = vulnerable;
 }
 
