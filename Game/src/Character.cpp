@@ -13,7 +13,7 @@ Character::Character(int id, const sf::FloatRect box, const sf::Vector2f speed, 
     this->hp=hp;
     hpMax=hp;
     vulnerable=true;
-    *atq=a;
+    atq=&a;
 }
 
 Character::~Character()
@@ -35,6 +35,11 @@ int Character::hurt(int damage){
     hp-=damage;
 
     return hp;
+}
+
+void Character::move(){
+    hitbox.left+=speed.x;
+    hitbox.top+=speed.y;
 }
 
 bool Character::isDead(){

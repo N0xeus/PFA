@@ -26,7 +26,7 @@ class TouchableObject
         ///
         ////////////////////////////////////////////////////////////
 
-        TouchableObject(int id, const sf::IntRect box);
+        TouchableObject(int id, const sf::FloatRect box);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
@@ -46,7 +46,36 @@ class TouchableObject
         ///
         /// \return Hitbox
         ////////////////////////////////////////////////////////////
-        sf::IntRect getHitbox() { return hitbox; }
+        sf::FloatRect getHitbox() { return hitbox; }
+
+
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Getter of position X
+        ///
+        /// \return Position X
+        ///
+        ////////////////////////////////////////////////////////////
+        float getX() { return hitbox.left; }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Getter of position Y
+        ///
+        /// \return Position Y
+        ///
+        ////////////////////////////////////////////////////////////
+        float getY() { return hitbox.top; }
+
+
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Setter of position X and Y
+        ///
+        /// \param x
+        /// \param y
+        ///
+        ////////////////////////////////////////////////////////////
+        void setPosition(float x, float y);
 
         ////////////////////////////////////////////////////////////
         /// \brief Determine the collision
@@ -95,7 +124,7 @@ class TouchableObject
         // Member data
         ////////////////////////////////////////////////////////////
         int id;                 /// Identifier
-        sf::IntRect hitbox;     /// Rectangular hitbox
+        sf::FloatRect hitbox;     /// Rectangular hitbox
 
     private:
 

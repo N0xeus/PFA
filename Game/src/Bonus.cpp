@@ -1,6 +1,6 @@
 #include "Bonus.h"
 
-Bonus::Bonus(int id, const sf::IntRect box):Pickable(id, box)
+Bonus::Bonus(int id, const sf::FloatRect box):Pickable(id, box)
 {
     //ctor
 }

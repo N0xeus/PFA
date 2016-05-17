@@ -112,6 +112,12 @@ class Character : public TouchableObject
         int hurt(int damage);
 
         ////////////////////////////////////////////////////////////
+        /// \brief Move
+        ///
+        ////////////////////////////////////////////////////////////
+        void move();
+
+        ////////////////////////////////////////////////////////////
         /// \brief Determine the type of the object
         ///
         /// Return true if the object is an \link Attack

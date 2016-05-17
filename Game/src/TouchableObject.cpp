@@ -6,7 +6,7 @@ TouchableObject::TouchableObject()
 
 }
 
-TouchableObject::TouchableObject(int id, const sf::IntRect box)
+TouchableObject::TouchableObject(int id, const sf::FloatRect box)
 {
     this->id=id;
     this->hitbox=box;
@@ -15,6 +15,11 @@ TouchableObject::TouchableObject(int id, const sf::IntRect box)
 TouchableObject::~TouchableObject()
 {
     //dtor
+}
+
+void TouchableObject::setPosition(float x, float y){
+    hitbox.left=x;
+    hitbox.top=y;
 }
 
 bool TouchableObject::intersects(TouchableObject& to){
