@@ -12,7 +12,7 @@ class Enemy : public Character
 {
     public:
         Enemy();
-        Enemy(int id, const sf::FloatRect box, const sf::Vector2f speed, int hp, Attack& a, bool vulnerable, int type, int sight, int range);
+        Enemy(int id, const sf::FloatRect box, const sf::Vector2f speed, int hp, Attack& a, int type, int sight, int range);
         Enemy(Enemy& e);
         virtual ~Enemy();
 

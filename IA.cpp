@@ -134,7 +134,7 @@ int main()
     sf::Clock timer;
     Int32 start_time;
     Attack* atq1 = new HtH(2,FloatRect(20,20,100,100),20,20);
-    Enemy cube(1,FloatRect(100,450,50,50),Vector2f(10,0),100,*atq1,true,1,20,10);
+    Enemy cube(1,FloatRect(100,450,50,50),Vector2f(10,0),100,*atq1,1,20,10);
     Obstacle obstacle(3, r2,10000);
     Enemy tmp;
     Vector2f dist;

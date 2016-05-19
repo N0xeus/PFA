@@ -5,6 +5,7 @@ Enemy::Enemy()
 
 }
 
+Enemy::Enemy(int id, const sf::FloatRect box, const sf::Vector2f speed, int hp, Attack& a, int type, int sight, int range):Character(id, box, speed, hp, a)
 {
     this->type = type;
     this->sight = sight;
